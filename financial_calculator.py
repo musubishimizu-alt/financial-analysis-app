@@ -303,6 +303,6 @@ def generate_quiz(companies: List[Dict[str, Any]]) -> Dict[str, Any]:
             "description": target_metric["description"],
             "evaluation": target_metric["evaluation"],
             "source_details": target_metric["items_used"],
-            "edinet_url": company["edinet_url"]
+            "edinet_url": company.get("edinet_url", "https://disclosure2.edinet-fsa.go.jp/"), "edinet_code": company.get("edinet_code", ""), "disclosure_url": company.get("disclosure_url", "")
         }
     }

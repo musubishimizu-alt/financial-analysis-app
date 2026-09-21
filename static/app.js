@@ -164,7 +164,11 @@ function renderCompanyDetails(data) {
   document.getElementById('disp-fiscal-text').textContent = c.fiscal_period;
   document.getElementById('disp-name').textContent = c.name;
   document.getElementById('disp-desc').textContent = c.description;
-  document.getElementById('disp-edinet-link').href = c.edinet_url;
+  const discLink = document.getElementById('disp-disclosure-link');
+  if (discLink) discLink.href = c.disclosure_url || `https://kabutan.jp/stock/kaiji/?code=${c.code}`;
+  
+  const edinetBtnLabel = document.getElementById('label-edinet-code');
+  if (edinetBtnLabel) edinetBtnLabel.textContent = `EDINET: ${c.edinet_code}`;
 
   // Raw stats
   const raw = c.financial_raw;
@@ -445,4 +449,36 @@ async function handleOptionSelect(selectedOption, clickedBtn) {
 
   feedbackBox.classList.remove('hidden');
   feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Open EDINET Search and Copy Company Code
+function openEdinetWithCopy() {
+  if (!currentCompany || !currentCompany.company) return;
+  const comp = currentCompany.company;
+  const code = comp.edinet_code || comp.code;
+  
+  // Copy to clipboard
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(code).then(() => {
+      showToast('EDINETコードをコピーしました！', `「${code}」（${comp.short_name}）をEDINET検索窓に貼り付けて検索できます。`);
+    }).catch(() => {
+      showToast('EDINETを開きます', `企業コード: ${code}`);
+    });
+  }
+  
+  // Open EDINET search in new tab
+  window.open('https://disclosure2.edinet-fsa.go.jp/', '_blank', 'noopener,noreferrer');
+}
+
+// Toast notification helper
+function showToast(title, desc) {
+  const toast = document.getElementById('toast-notify');
+  if (!toast) return;
+  document.getElementById('toast-title').textContent = title;
+  document.getElementById('toast-desc').textContent = desc;
+  
+  toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+  setTimeout(() => {
+    toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+  }, 4000);
 }

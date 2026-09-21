@@ -11,7 +11,7 @@
     "sector": "輸送用機器",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X720",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 50684900,
       "operating_income": 3766200,
@@ -71,7 +71,8 @@
         "page": "1ページ"
       }
     },
-    "description": "日本企業として史上初めて売上高50兆円を突破。グローバルなハイブリッド車（HEV）需要の継続とEV・知能化投資の両輪を推進。"
+    "description": "日本企業として史上初めて売上高50兆円を突破。グローバルなハイブリッド車（HEV）需要の継続とEV・知能化投資の両輪を推進。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=7203"
   },
   {
     "id": "6758",
@@ -85,7 +86,7 @@
     "sector": "電気機器",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X675",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 12479600,
       "operating_income": 1447500,
@@ -145,7 +146,8 @@
         "page": "1ページ"
       }
     },
-    "description": "営業利益1兆4,475億円と過去最高を更新。ゲーム・ネットワーク、音楽、イメージセンサー等の強力なIP・技術基盤が好調。"
+    "description": "営業利益1兆4,475億円と過去最高を更新。ゲーム・ネットワーク、音楽、イメージセンサー等の強力なIP・技術基盤が好調。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=6758"
   },
   {
     "id": "7974",
@@ -159,7 +161,7 @@
     "sector": "その他製品",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "日本基準",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X797",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 2313000,
       "operating_income": 360100,
@@ -219,7 +221,8 @@
         "page": "1ページ"
       }
     },
-    "description": "新世代ハードウェアの本格展開と強力な自社IPタイトルにより売上高2.3兆円へと大幅増収。自己資本比率77.6%の鉄壁の財務。"
+    "description": "新世代ハードウェアの本格展開と強力な自社IPタイトルにより売上高2.3兆円へと大幅増収。自己資本比率77.6%の鉄壁の財務。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=7974"
   },
   {
     "id": "6861",
@@ -233,7 +236,7 @@
     "sector": "電気機器",
     "fiscal_period": "2026年3月期（2025年3月21日～2026年3月20日）",
     "standard": "日本基準",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X686",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 1169289,
       "operating_income": 595759,
@@ -293,7 +296,8 @@
         "page": "1ページ"
       }
     },
-    "description": "FAセンサ・測定機器で圧倒的シェア。売上高営業利益率51.0%、自己資本比率94.6%と国内製造業屈指の超優良財務を誇る。"
+    "description": "FAセンサ・測定機器で圧倒的シェア。売上高営業利益率51.0%、自己資本比率94.6%と国内製造業屈指の超優良財務を誇る。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=6861"
   },
   {
     "id": "4063",
@@ -307,7 +311,7 @@
     "sector": "化学",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "日本基準",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X406",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 2573969,
       "operating_income": 635204,
@@ -367,7 +371,8 @@
         "page": "1ページ"
       }
     },
-    "description": "半導体シリコンウエハー世界首位。塩ビ樹脂とあわせてグローバルに高収益・高シェアを維持する素材コングロマリット。"
+    "description": "半導体シリコンウエハー世界首位。塩ビ樹脂とあわせてグローバルに高収益・高シェアを維持する素材コングロマリット。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=4063"
   },
   {
     "id": "8035",
@@ -381,7 +386,7 @@
     "sector": "電気機器",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "日本基準",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X803",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 2443533,
       "operating_income": 624936,
@@ -441,7 +446,8 @@
         "page": "1ページ"
       }
     },
-    "description": "生成AI向け先端半導体（HBM・最先端ロジック）投資の継続により高水準の利益とROE 27%超を達成。"
+    "description": "生成AI向け先端半導体（HBM・最先端ロジック）投資の継続により高水準の利益とROE 27%超を達成。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=8035"
   },
   {
     "id": "8058",
@@ -455,7 +461,7 @@
     "sector": "卸売業",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X805",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 18915995,
       "operating_income": 895000,
@@ -515,7 +521,8 @@
         "page": "1ページ"
       }
     },
-    "description": "総合商社最大手。エネルギー・資源分野と産業インフラ・食品・リテール分野のシナジーを発揮。"
+    "description": "総合商社最大手。エネルギー・資源分野と産業インフラ・食品・リテール分野のシナジーを発揮。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=8058"
   },
   {
     "id": "8001",
@@ -529,7 +536,7 @@
     "sector": "卸売業",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X801",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 15100000,
       "operating_income": 935000,
@@ -589,7 +596,8 @@
         "page": "1ページ"
       }
     },
-    "description": "純利益9,150億円を達成。マーケットイン志向の経営と高い資本効率（ROE 14%超）を維持。"
+    "description": "純利益9,150億円を達成。マーケットイン志向の経営と高い資本効率（ROE 14%超）を維持。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=8001"
   },
   {
     "id": "9983",
@@ -603,7 +611,7 @@
     "sector": "小売業",
     "fiscal_period": "2025年8月期 通期確定 / 2026年8月期（最新有報）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X998",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 3550000,
       "operating_income": 565000,
@@ -663,7 +671,8 @@
         "page": "1ページ"
       }
     },
-    "description": "海外ユニクロ事業（欧米および東南アジア）の拡大が続き、営業利益5,600億円超の高収益構造を確立。"
+    "description": "海外ユニクロ事業（欧米および東南アジア）の拡大が続き、営業利益5,600億円超の高収益構造を確立。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=9983"
   },
   {
     "id": "9433",
@@ -677,7 +686,7 @@
     "sector": "情報・通信業",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X943",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 6050000,
       "operating_income": 1020000,
@@ -737,7 +746,8 @@
         "page": "1ページ"
       }
     },
-    "description": "通信ARPUの上昇とDX・ローソン連携などの生活インフラサービスが拡大。"
+    "description": "通信ARPUの上昇とDX・ローソン連携などの生活インフラサービスが拡大。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=9433"
   },
   {
     "id": "6501",
@@ -751,7 +761,7 @@
     "sector": "電気機器",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X650",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 10500000,
       "operating_income": 920000,
@@ -811,7 +821,8 @@
         "page": "1ページ"
       }
     },
-    "description": "デジタル・グリーン・イノベーションの3本柱で社会インフラDXを推進。ルマーダ事業の利益率が向上。"
+    "description": "デジタル・グリーン・イノベーションの3本柱で社会インフラDXを推進。ルマーダ事業の利益率が向上。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=6501"
   },
   {
     "id": "4661",
@@ -825,7 +836,7 @@
     "sector": "サービス業",
     "fiscal_period": "第66期 2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "日本基準",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X466",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 704539,
       "operating_income": 165490,
@@ -885,7 +896,8 @@
         "page": "1ページ"
       }
     },
-    "description": "東京ディズニーシーのファンタジースプリングス通年寄与とインバウンド需要で営業利益1,900億円超を達成。"
+    "description": "東京ディズニーシーのファンタジースプリングス通年寄与とインバウンド需要で営業利益1,900億円超を達成。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=4661"
   },
   {
     "id": "4502",
@@ -899,7 +911,7 @@
     "sector": "医薬品",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X450",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 4580000,
       "operating_income": 310000,
@@ -959,7 +971,8 @@
         "page": "1ページ"
       }
     },
-    "description": "血漿分画製剤事業や希少疾患治療薬の成長とパイプラインの進展で営業利益3,000億円台に回復。"
+    "description": "血漿分画製剤事業や希少疾患治療薬の成長とパイプラインの進展で営業利益3,000億円台に回復。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=4502"
   },
   {
     "id": "6098",
@@ -973,7 +986,7 @@
     "sector": "サービス業",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X609",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 3820000,
       "operating_income": 485000,
@@ -1033,7 +1046,8 @@
         "page": "1ページ"
       }
     },
-    "description": "HRテクノロジーSaaSおよび国内マッチングプラットフォーム（Airビジネスツールズ等）の拡大でROE 20%超。"
+    "description": "HRテクノロジーSaaSおよび国内マッチングプラットフォーム（Airビジネスツールズ等）の拡大でROE 20%超。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=6098"
   },
   {
     "id": "6367",
@@ -1047,7 +1061,7 @@
     "sector": "機械",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "日本基準",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X636",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 4780000,
       "operating_income": 440000,
@@ -1107,7 +1121,8 @@
         "page": "1ページ"
       }
     },
-    "description": "グローバル空調市場での首位を堅持。ヒートポンプ暖房や高効率インバータの販売が堅調。"
+    "description": "グローバル空調市場での首位を堅持。ヒートポンプ暖房や高効率インバータの販売が堅調。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=6367"
   },
   {
     "id": "7267",
@@ -1121,7 +1136,7 @@
     "sector": "輸送用機器",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X726",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 22600000,
       "operating_income": 1480000,
@@ -1181,7 +1196,8 @@
         "page": "1ページ"
       }
     },
-    "description": "二輪事業の世界シェア首位を維持しつつ、北米向けハイブリッド車の好調と資本効率改善を推進。"
+    "description": "二輪事業の世界シェア首位を維持しつつ、北米向けハイブリッド車の好調と資本効率改善を推進。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=7267"
   },
   {
     "id": "6902",
@@ -1195,7 +1211,7 @@
     "sector": "輸送用機器",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X690",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 7680000,
       "operating_income": 485000,
@@ -1255,7 +1271,8 @@
         "page": "1ページ"
       }
     },
-    "description": "車載半導体やインバータなどの電動化システムのシェア拡大により過去最高水準の利益を更新。"
+    "description": "車載半導体やインバータなどの電動化システムのシェア拡大により過去最高水準の利益を更新。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=6902"
   },
   {
     "id": "6954",
@@ -1269,7 +1286,7 @@
     "sector": "電気機器",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "日本基準",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X695",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 875000,
       "operating_income": 175000,
@@ -1329,7 +1346,8 @@
         "page": "1ページ"
       }
     },
-    "description": "工作機械用CNCと協業ロボットの需要回復により自己資本比率87%の盤石財務を堅持。"
+    "description": "工作機械用CNCと協業ロボットの需要回復により自己資本比率87%の盤石財務を堅持。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=6954"
   },
   {
     "id": "6752",
@@ -1343,7 +1361,7 @@
     "sector": "電気機器",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X675B",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 9020000,
       "operating_income": 410000,
@@ -1403,7 +1421,8 @@
         "page": "1ページ"
       }
     },
-    "description": "車載電池事業の設備投資と効率化を推進。空調冷熱事業との両輪で利益率を改善。"
+    "description": "車載電池事業の設備投資と効率化を推進。空調冷熱事業との両輪で利益率を改善。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=6752"
   },
   {
     "id": "2802",
@@ -1417,7 +1436,7 @@
     "sector": "食料品",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "IFRS",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X280",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 1610000,
       "operating_income": 178000,
@@ -1477,7 +1496,8 @@
         "page": "1ページ"
       }
     },
-    "description": "食品事業の海外展開に加え、先端半導体パッケージ向け絶縁材料（ABF）の生産能力増強が寄与。"
+    "description": "食品事業の海外展開に加え、先端半導体パッケージ向け絶縁材料（ABF）の生産能力増強が寄与。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=2802"
   },
   {
     "id": "3968",
@@ -1491,7 +1511,7 @@
     "sector": "情報・通信業",
     "fiscal_period": "2025年12月期（2025年1月1日～2025年12月31日）",
     "standard": "日本基準",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100Y396",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 25074,
       "operating_income": 1854,
@@ -1551,7 +1571,8 @@
         "page": "1ページ"
       }
     },
-    "description": "東証プライム市場上場。ITインフラストラクチャーおよびサイバーセキュリティ製品・ソリューションをワンストップで提供。ROE 27.1%の高資本効率を達成。"
+    "description": "東証プライム市場上場。ITインフラストラクチャーおよびサイバーセキュリティ製品・ソリューションをワンストップで提供。ROE 27.1%の高資本効率を達成。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=3968"
   },
   {
     "id": "4681",
@@ -1565,7 +1586,7 @@
     "sector": "サービス業",
     "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
     "standard": "日本基準",
-    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100Y468",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
     "financial_raw": {
       "revenue": 263020,
       "operating_income": 29161,
@@ -1625,6 +1646,7 @@
         "page": "1ページ"
       }
     },
-    "description": "東証プライム市場上場。会員制リゾートホテル「エクシブ」「ベイコート倶楽部」の運営およびメディカル（検診・クリニック）事業を展開。売上・利益ともに過去最高を更新。"
+    "description": "東証プライム市場上場。会員制リゾートホテル「エクシブ」「ベイコート倶楽部」の運営およびメディカル（検診・クリニック）事業を展開。売上・利益ともに過去最高を更新。",
+    "disclosure_url": "https://kabutan.jp/stock/kaiji/?code=4681"
   }
 ]

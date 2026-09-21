@@ -159,12 +159,20 @@
               </p>
             </div>
 
-            <!-- EDINET Link Button -->
+            <!-- EDINET & Disclosure Action Buttons -->
             <div class="flex-shrink-0 flex flex-col sm:flex-row gap-2">
-              <a id="disp-edinet-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-sm transition-all shadow-md hover:shadow-emerald-500/20">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <span>EDINETで有報を開く</span>
+              <!-- Direct Disclosure Viewer Link (100% Reliable by Stock Code) -->
+              <a id="disp-disclosure-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-sm transition-all shadow-md hover:shadow-emerald-500/20">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>有報・適時開示を開く</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
               </a>
+              <!-- EDINET Search with 1-Click Code Copy -->
+              <button id="btn-copy-edinet" onclick="openEdinetWithCopy()" class="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-medium text-xs border border-slate-700 transition">
+                <i class="fa-regular fa-copy text-indigo-400"></i>
+                <span id="label-edinet-code">EDINET: E00000</span>
+                <span class="text-[10px] bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded">コピーして開く</span>
+              </button>
             </div>
           </div>
 
@@ -524,5 +532,16 @@
   </footer>
 
   <script src="/app.js"></script>
+  <!-- Toast Notification -->
+  <div id="toast-notify" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 text-sm">
+    <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <div>
+      <div id="toast-title" class="font-bold text-white">コピー完了</div>
+      <div id="toast-desc" class="text-xs text-slate-300">EDINETコードをクリップボードにコピーしました</div>
+    </div>
+  </div>
+
 </body>
 </html>
