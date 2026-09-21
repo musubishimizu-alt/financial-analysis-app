@@ -451,23 +451,73 @@ async function handleOptionSelect(selectedOption, clickedBtn) {
   feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Open EDINET Search and Copy Company Code
-function openEdinetWithCopy() {
-  if (!currentCompany || !currentCompany.company) return;
-  const comp = currentCompany.company;
-  const code = comp.edinet_code || comp.code;
-  
-  // Copy to clipboard
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(code).then(() => {
-      showToast('EDINETコードをコピーしました！', `「${code}」（${comp.short_name}）をEDINET検索窓に貼り付けて検索できます。`);
-    }).catch(() => {
-      showToast('EDINETを開きます', `企業コード: ${code}`);
-    });
+// Handle Disclosure Link Click
+function handleDisclosureClick(event) {
+  let targetUrl = "https://kabutan.jp/stock/kaiji/?code=7203";
+  if (currentCompany && currentCompany.company) {
+    const comp = currentCompany.company;
+    targetUrl = comp.disclosure_url || `https://kabutan.jp/stock/kaiji/?code=${comp.code}`;
   }
   
-  // Open EDINET search in new tab
+  // Ensure link href is updated
+  const linkEl = document.getElementById('disp-disclosure-link');
+  if (linkEl) {
+    linkEl.href = targetUrl;
+  }
+  
+  // If clicked, open targetUrl directly
+  event.preventDefault();
+  window.open(targetUrl, '_blank', 'noopener,noreferrer');
+}
+
+// Open EDINET Search and Copy Company Code reliably
+function openEdinetWithCopy(event) {
+  if (event) event.preventDefault();
+
+  let code = "E02144";
+  let name = "トヨタ自動車";
+  if (currentCompany && currentCompany.company) {
+    const comp = currentCompany.company;
+    code = comp.edinet_code || comp.code;
+    name = comp.short_name || comp.name;
+  }
+
+  // 1. Copy to clipboard with universal fallback
+  copyTextToClipboard(code);
+
+  // 2. Show user feedback toast immediately
+  showToast('EDINETコードをコピーしました！', `「${code}」（${name}）をクリップボードにコピーしました。EDINET検索窓に貼り付けて検索できます。`);
+
+  // 3. Open EDINET search synchronously to avoid popup blocker
   window.open('https://disclosure2.edinet-fsa.go.jp/', '_blank', 'noopener,noreferrer');
+}
+
+// Robust clipboard copy function (supports modern API + fallback)
+function copyTextToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).catch(err => {
+      fallbackCopyText(text);
+    });
+  } else {
+    fallbackCopyText(text);
+  }
+}
+
+function fallbackCopyText(text) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.left = "-999999px";
+  textArea.style.top = "-999999px";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  try {
+    document.execCommand('copy');
+  } catch (err) {
+    console.warn('Fallback copy failed', err);
+  }
+  document.body.removeChild(textArea);
 }
 
 // Toast notification helper
@@ -480,5 +530,5 @@ function showToast(title, desc) {
   toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
   setTimeout(() => {
     toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
-  }, 4000);
+  }, 4500);
 }
