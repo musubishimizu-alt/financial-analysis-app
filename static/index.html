@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>有価証券報告書 財務分析＆クイズアプリ | EDINET Financial Analyzer</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#4f46e5',
+              600: '#4338ca',
+              700: '#3730a3',
+              900: '#1e1b4b',
+            },
+            slate: {
+              850: '#151f32',
+              950: '#0b1120'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header / Navigation -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-40 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('analysis')">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-emerald-400 flex items-center justify-center text-white font-bold text-xl shadow-inner">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div>
+            <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+              EDINET 財務分析・クイズ
+              <span class="text-xs bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 px-2 py-0.5 rounded-full font-medium">有報最新データ</span>
+            </h1>
+            <p class="text-xs text-slate-400 hidden sm:block">国内上場企業の有価証券報告書から投資指標（ROE・PBR・PER等）を完全可視化</p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex space-x-1 sm:space-x-2">
+          <button id="nav-tab-analysis" onclick="switchTab('analysis')" class="px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 bg-indigo-600 text-white shadow-sm">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>企業財務分析</span>
+          </button>
+          <button id="nav-tab-quiz" onclick="switchTab('quiz')" class="px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-800">
+            <i class="fa-solid fa-bullseye text-emerald-400"></i>
+            <span>有報クイズ</span>
+            <span class="text-xs bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded-full">3択</span>
+          </button>
+          <button id="nav-tab-guide" onclick="switchTab('guide')" class="px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-800">
+            <i class="fa-solid fa-book-bookmark text-amber-400"></i>
+            <span class="hidden md:inline">指標ガイド</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- ============================================================== -->
+    <!-- TAB 1: 企業財務分析 (Analysis Tab) -->
+    <!-- ============================================================== -->
+    <section id="tab-analysis" class="space-y-6">
+      <!-- Search & Filter Card -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200/80">
+        <label class="block text-sm font-semibold text-slate-700 mb-2">
+          <i class="fa-solid fa-magnifying-glass text-indigo-500 mr-1.5"></i>
+          企業を検索（企業名・銘柄コードで部分一致検索）
+        </label>
+        <div class="relative">
+          <div class="relative flex items-center">
+            <input 
+              type="text" 
+              id="company-search-input"
+              placeholder="例：トヨタ、任天堂、ソニー、6861、キーエンス、ユニクロ..."
+              autocomplete="off"
+              class="w-full pl-11 pr-10 py-3 text-base sm:text-lg bg-slate-50 hover:bg-slate-100/60 focus:bg-white border-2 border-slate-200 focus:border-indigo-500 rounded-xl transition duration-150 outline-none text-slate-800 placeholder-slate-400 shadow-inner"
+            >
+            <div class="absolute left-3.5 text-slate-400 text-lg pointer-events-none">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <button id="clear-search-btn" class="hidden absolute right-3 text-slate-400 hover:text-slate-600 p-1">
+              <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+          </div>
+
+          <!-- Autocomplete Dropdown List -->
+          <div id="search-dropdown" class="hidden absolute top-full left-0 right-0 mt-1.5 bg-white border border-slate-200 rounded-xl shadow-xl z-30 max-h-80 overflow-y-auto divide-y divide-slate-100">
+            <!-- Dynamic Items injected here -->
+          </div>
+        </div>
+
+        <!-- Quick Pick Suggestions -->
+        <div class="mt-4 flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100">
+          <span class="text-xs font-medium text-slate-500 flex items-center gap-1">
+            <i class="fa-solid fa-fire text-orange-500"></i> 代表的な上場企業：
+          </span>
+          <div id="quick-picks" class="flex flex-wrap gap-1.5">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div id="analysis-loading" class="hidden py-16 text-center">
+        <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-indigo-500 border-t-transparent"></div>
+        <p class="mt-3 text-sm text-slate-500 font-medium">有価証券報告書データを取得・財務指標を計算中...</p>
+      </div>
+
+      <!-- Company Content Display -->
+      <div id="company-display" class="space-y-6">
+        <!-- Company Header Summary Card -->
+        <div class="bg-gradient-to-r from-slate-900 via-slate-850 to-indigo-950 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl pointer-events-none">
+            <i class="fa-solid fa-landmark"></i>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
+            <div class="space-y-2">
+              <div class="flex flex-wrap items-center gap-2">
+                <span id="disp-code" class="px-2.5 py-1 rounded-md text-xs font-bold bg-indigo-500/40 text-indigo-200 border border-indigo-400/30">
+                  コード: 7203
+                </span>
+                <span id="disp-sector" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                  輸送用機器
+                </span>
+                <span id="disp-standard" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  IFRS
+                </span>
+                <span id="disp-fiscal" class="text-xs text-slate-400 flex items-center gap-1">
+                  <i class="fa-regular fa-calendar-check"></i>
+                  <span id="disp-fiscal-text">2024年3月期</span>
+                </span>
+              </div>
+
+              <h2 id="disp-name" class="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+                トヨタ自動車株式会社
+              </h2>
+              <p id="disp-desc" class="text-sm text-slate-300 max-w-3xl leading-relaxed">
+                企業概要説明
+              </p>
+            </div>
+
+            <!-- EDINET Link Button -->
+            <div class="flex-shrink-0 flex flex-col sm:flex-row gap-2">
+              <a id="disp-edinet-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-sm transition-all shadow-md hover:shadow-emerald-500/20">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>EDINETで有報を開く</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Raw Key Stats Bar (Including Stock Price, EPS, BPS) -->
+          <div class="mt-6 pt-4 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
+            <div>
+              <span class="text-slate-400 block">期末株価（有報掲載）</span>
+              <span id="stat-price" class="text-sm sm:text-base font-bold text-amber-300">--</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block">1株当たり純利益 (EPS)</span>
+              <span id="stat-eps" class="text-sm sm:text-base font-bold text-rose-300">--</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block">1株当たり純資産 (BPS)</span>
+              <span id="stat-bps" class="text-sm sm:text-base font-bold text-teal-300">--</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block">売上高 / 売上収益</span>
+              <span id="stat-revenue" class="text-sm sm:text-base font-bold text-white">--</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block">営業利益</span>
+              <span id="stat-op-income" class="text-sm sm:text-base font-bold text-emerald-400">--</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block">当期純利益</span>
+              <span id="stat-net-income" class="text-sm sm:text-base font-bold text-indigo-300">--</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Title -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-6 bg-indigo-600 rounded-full"></div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-800">主要財務分析指標の計算結果と根拠（7指標）</h3>
+          </div>
+          <span class="text-xs text-slate-500 hidden sm:inline">
+            ※各指標のカードを展開して有報の項目名・掲載ページを確認できます
+          </span>
+        </div>
+
+        <!-- Metrics Cards Container -->
+        <div id="metrics-container" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Dynamically generated metric cards will be rendered here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- TAB 2: 有報財務クイズ (Quiz Tab) -->
+    <!-- ============================================================== -->
+    <section id="tab-quiz" class="hidden space-y-6">
+      <!-- Quiz Header Banner -->
+      <div class="bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900 rounded-2xl p-6 text-white shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 mb-2">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>有報チャレンジモード</span>
+          </div>
+          <h2 class="text-2xl font-bold tracking-tight">有価証券報告書 財務指標クイズ</h2>
+          <p class="text-sm text-teal-200/80 mt-1 max-w-xl">
+            国内上場企業の中からランダムに出題！実際の有報データをもとに指標（ROE・PBR・PER・ROIC等）を計算・3択から回答してみましょう。
+          </p>
+        </div>
+
+        <!-- Score Board -->
+        <div class="flex items-center gap-4 bg-slate-950/50 backdrop-blur border border-white/10 rounded-xl px-5 py-3 text-center">
+          <div>
+            <div class="text-xs text-slate-400 font-medium">連続正解</div>
+            <div id="quiz-streak" class="text-2xl font-black text-amber-400">0</div>
+          </div>
+          <div class="h-8 w-px bg-slate-700"></div>
+          <div>
+            <div class="text-xs text-slate-400 font-medium">合計スコア</div>
+            <div id="quiz-score" class="text-2xl font-black text-emerald-400">0 / 0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Card -->
+      <div id="quiz-card" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
+        <!-- Target Company & Metric Badge -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-600 border border-indigo-100">
+              対象企業
+            </span>
+            <span id="quiz-company-name" class="font-bold text-slate-800 text-lg sm:text-xl">
+              --
+            </span>
+            <span id="quiz-company-code" class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">
+              ----
+            </span>
+          </div>
+          <span id="quiz-fiscal-period" class="text-xs text-slate-500">
+            最新決算年度
+          </span>
+        </div>
+
+        <!-- Question Prompt -->
+        <div class="space-y-2">
+          <h3 id="quiz-question-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-snug">
+            Q. この企業の「自己資本比率」として最も近いものはどれ？
+          </h3>
+          <p id="quiz-question-lead" class="text-sm text-slate-600 leading-relaxed">
+            有価証券報告書の決算情報を確認し、計算式にあてはめて選択肢から選んでください。
+          </p>
+        </div>
+
+        <!-- Hints & Raw Financial Data from EDINET -->
+        <div class="bg-amber-50/70 border border-amber-200/80 rounded-xl p-4 sm:p-5 space-y-2">
+          <div class="flex items-center gap-2 text-amber-800 font-bold text-sm">
+            <i class="fa-solid fa-lightbulb text-amber-500"></i>
+            <span>有価証券報告書からの抜粋データ（計算の手がかり）</span>
+          </div>
+          <div id="quiz-hints-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <!-- Dynamic hint items -->
+          </div>
+        </div>
+
+        <!-- 3-Choice Options -->
+        <div class="space-y-3">
+          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">選択肢を選んでください</div>
+          <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- 3 options buttons -->
+          </div>
+        </div>
+
+        <!-- Feedback & Explanation Box (Initially hidden) -->
+        <div id="quiz-feedback-box" class="hidden space-y-4 pt-4 border-t border-slate-100">
+          <!-- Result Banner -->
+          <div id="quiz-result-banner" class="p-4 rounded-xl flex items-center gap-3 font-bold text-lg">
+            <!-- Injected by JS -->
+          </div>
+
+          <!-- Detailed Explanation -->
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-800 text-base flex items-center gap-2">
+                <i class="fa-solid fa-calculator text-indigo-500"></i>
+                解説と計算プロセス
+              </h4>
+              <a id="quiz-edinet-link" href="#" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 hover:text-indigo-800 font-semibold flex items-center gap-1">
+                <span>有報の該当箇所をEDINETで確認</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <div class="space-y-2 text-sm text-slate-700">
+              <div class="bg-white p-3 rounded-lg border border-slate-200/70">
+                <span class="text-xs text-slate-400 block font-medium">定義式</span>
+                <span id="quiz-exp-definition" class="font-semibold text-slate-800 font-mono">--</span>
+              </div>
+              <div class="bg-white p-3 rounded-lg border border-slate-200/70">
+                <span class="text-xs text-slate-400 block font-medium">数値代入</span>
+                <span id="quiz-exp-applied" class="font-semibold text-indigo-600 font-mono">--</span>
+              </div>
+              <p id="quiz-exp-desc" class="text-slate-600 text-xs sm:text-sm leading-relaxed mt-2">
+                --
+              </p>
+            </div>
+
+            <!-- Source locations -->
+            <div class="pt-3 border-t border-slate-200 text-xs text-slate-500">
+              <span class="font-semibold text-slate-700 block mb-1">有報内での記載箇所・ページ：</span>
+              <div id="quiz-exp-sources" class="space-y-1">
+                <!-- Source items -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Button -->
+          <div class="flex justify-end">
+            <button onclick="fetchNextQuiz()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md transition flex items-center gap-2">
+              <span>次のクイズへ</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- TAB 3: 指標解説・利用ガイド (Guide Tab) -->
+    <!-- ============================================================== -->
+    <section id="tab-guide" class="hidden space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
+        <div class="border-b border-slate-100 pb-4">
+          <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap text-indigo-600"></i>
+            投資家が重視する主要財務分析指標ガイド
+          </h2>
+          <p class="text-sm text-slate-500 mt-1">
+            有価証券報告書から読み解くべき各指標の計算方法、目的、目安水準のまとめ
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Card 1: PBR -->
+          <div class="border border-teal-200 rounded-xl p-5 bg-teal-50/20 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-teal-500"></span>
+                PBR (株価純資産倍率 - Price Book-value Ratio)
+              </h3>
+              <span class="text-xs bg-teal-100 text-teal-800 px-2 py-0.5 rounded font-medium">解散価値・東証要請</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              現在の株価が、企業の1株当たり純資産（BPS）の何倍まで買われているかを示します。1倍未満は「会社を清算して資産を分けた方が高い」異常状態（解散価値割れ）とみなされ、現在東証による「PBR1倍超え改革」の焦点となっています。
+            </p>
+            <div class="bg-white p-2.5 rounded-lg border border-teal-200 text-xs font-mono text-teal-700 font-semibold">
+              株価 ÷ 1株当たり純資産 (BPS) (倍)
+            </div>
+            <div class="text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">目安：</span> 1.0倍が下限ライン。2〜5倍で高評価。1倍割れは改善余地・自社株買い期待銘柄。
+            </div>
+          </div>
+
+          <!-- Card 2: PER -->
+          <div class="border border-rose-200 rounded-xl p-5 bg-rose-50/20 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                PER (株価収益率 - Price Earnings Ratio)
+              </h3>
+              <span class="text-xs bg-rose-100 text-rose-800 px-2 py-0.5 rounded font-medium">割安度・成長期待</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              株価が1株当たり純利益（EPS）の何倍まで買われているかを示します。投資元本を何年の利益で回収できるかを表し、将来の成長期待が高い企業ほどPERが高くなります。
+            </p>
+            <div class="bg-white p-2.5 rounded-lg border border-rose-200 text-xs font-mono text-rose-700 font-semibold">
+              株価 ÷ 1株当たり当期純利益 (EPS) (倍)
+            </div>
+            <div class="text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">目安：</span> 日本株の平均は約15倍。15倍未満は割安、25倍以上は高成長期待。
+            </div>
+          </div>
+
+          <!-- Card 3: 自己資本比率 -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                自己資本比率 (Equity Ratio)
+              </h3>
+              <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-medium">財務健全性</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              総資産のうち、返済義務のない自己資本（純資産・株主資本）がどれだけあるかを示します。高ければ高いほど不況や急激な業績悪化に耐えうる体力があります。
+            </p>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-xs font-mono text-indigo-700 font-semibold">
+              自己資本 ÷ 総資産 × 100 (%)
+            </div>
+            <div class="text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">目安：</span> 40%以上で健全、50%以上で非常に優良（無借金経営など）。
+            </div>
+          </div>
+
+          <!-- Card 4: ROE -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-indigo-500"></span>
+                ROE (自己資本利益率 - Return on Equity)
+              </h3>
+              <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded font-medium">株主資本効率</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              株主から託された自己資本を活用してどれだけ当期純利益を稼いだかを示します。ウォーレン・バフェットをはじめ機関投資家が最も重視する指標です。
+            </p>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-xs font-mono text-indigo-700 font-semibold">
+              当期純利益 ÷ 自己資本 × 100 (%)
+            </div>
+            <div class="text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">目安：</span> 8%以上が投資基準（伊藤レポート）、15%以上で高水準。
+            </div>
+          </div>
+
+          <!-- Card 5: ROIC -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                ROIC (投下資本利益率)
+              </h3>
+              <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-medium">本業稼ぐ力×資本コスト</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              調達資本（有利子負債＋自己資本）を使って本業の事業活動でいくら税引後利益（NOPAT）を生み出したかを測ります。資本コスト（WACC）を上回っているかが企業価値向上の鍵です。
+            </p>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-xs font-mono text-indigo-700 font-semibold">
+              税引後営業利益 (NOPAT) ÷ 投下資本 × 100 (%)
+            </div>
+            <div class="text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">目安：</span> 資本コスト（WACC 5〜7%程度）を上回る7〜10%以上。
+            </div>
+          </div>
+
+          <!-- Card 6: ROA -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                ROA (総資産利益率 - Return on Assets)
+              </h3>
+              <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded font-medium">総合運用効率</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              企業が保有する全資産（自己資本だけでなく借入金などの他人資本も含む）を使って、どれだけ効率よく利益を生み出したかを示す指標です。
+            </p>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-xs font-mono text-indigo-700 font-semibold">
+              当期純利益 ÷ 総資産 × 100 (%)
+            </div>
+            <div class="text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">目安：</span> 5%以上で良好、10%以上で高効率。
+            </div>
+          </div>
+
+          <!-- Card 7: 売上高営業利益率 -->
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 space-y-3 md:col-span-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+                売上高営業利益率 (Operating Margin)
+              </h3>
+              <span class="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded font-medium">収益性・価格決定力</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              本業の売上高に対して何％の営業利益を残せたかを示します。価格競争力、ブランド力、参入障壁の高さがダイレクトに反映されます。
+            </p>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-xs font-mono text-indigo-700 font-semibold">
+              営業利益 ÷ 売上収益（売上高） × 100 (%)
+            </div>
+            <div class="text-xs text-slate-500">
+              <span class="font-semibold text-slate-700">目安：</span> 日本企業平均は約5%、10%以上で高収益、20%以上で極めて強力なモート（堀）を持つ。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="font-semibold text-slate-700">EDINET 財務分析＆クイズアプリ</span>
+        <span>— 国内上場企業・最新有価証券報告書データ</span>
+      </div>
+      <div class="text-slate-400">
+        データ出典：金融庁 EDINET 開示有価証券報告書
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

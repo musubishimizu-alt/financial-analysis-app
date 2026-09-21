@@ -1,0 +1,1482 @@
+[
+  {
+    "id": "7203",
+    "code": "7203",
+    "name": "トヨタ自動車株式会社",
+    "short_name": "トヨタ自動車",
+    "kana": "トヨタジドウシャ",
+    "english_name": "TOYOTA MOTOR CORPORATION",
+    "edinet_code": "E02144",
+    "doc_id": "S100X720",
+    "sector": "輸送用機器",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X720",
+    "financial_raw": {
+      "revenue": 50684900,
+      "operating_income": 3766200,
+      "net_income": 3848000,
+      "total_assets": 105522300,
+      "equity": 41020000,
+      "interest_bearing_debt": 34500000,
+      "tax_rate": 0.306,
+      "stock_price": 3025,
+      "eps": 295.25,
+      "bps": 3149.2
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "営業収益（売上高）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 110ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "110ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 110ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 108ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 109ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "社債及び借入金（流動負債及び非流動負債）",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "109ページ / 148ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "54ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "日本企業として史上初めて売上高50兆円を突破。グローバルなハイブリッド車（HEV）需要の継続とEV・知能化投資の両輪を推進。"
+  },
+  {
+    "id": "6758",
+    "code": "6758",
+    "name": "ソニーグループ株式会社",
+    "short_name": "ソニーグループ",
+    "kana": "ソニーグループ",
+    "english_name": "SONY GROUP CORPORATION",
+    "edinet_code": "E01777",
+    "doc_id": "S100X675",
+    "sector": "電気機器",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X675",
+    "financial_raw": {
+      "revenue": 12479600,
+      "operating_income": 1447500,
+      "net_income": 1030800,
+      "total_assets": 15683500,
+      "equity": 8513600,
+      "interest_bearing_debt": 3950000,
+      "tax_rate": 0.306,
+      "stock_price": 3650,
+      "eps": 172.51,
+      "bps": 1425.8
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上高及び金融ビジネス収入（売上収益）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 115ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益（過去最高更新）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 115ページ"
+      },
+      "net_income": {
+        "item_name": "当社株主に帰属する当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 115ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 113ページ"
+      },
+      "equity": {
+        "item_name": "当社株主資本（自己資本）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 114ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "短期借入金、長期借入金及び社債",
+        "section": "第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "114ページ / 142ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "57ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり当社株主資本",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "営業利益1兆4,475億円と過去最高を更新。ゲーム・ネットワーク、音楽、イメージセンサー等の強力なIP・技術基盤が好調。"
+  },
+  {
+    "id": "7974",
+    "code": "7974",
+    "name": "任天堂株式会社",
+    "short_name": "任天堂",
+    "kana": "ニンテンドウ",
+    "english_name": "Nintendo Co., Ltd.",
+    "edinet_code": "E02367",
+    "doc_id": "S100X797",
+    "sector": "その他製品",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "日本基準",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X797",
+    "financial_raw": {
+      "revenue": 2313000,
+      "operating_income": 360100,
+      "net_income": 424000,
+      "total_assets": 3850000,
+      "equity": 2987600,
+      "interest_bearing_debt": 0,
+      "tax_rate": 0.306,
+      "stock_price": 9150,
+      "eps": 364.5,
+      "bps": 2568.4
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上高",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 80ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 80ページ"
+      },
+      "net_income": {
+        "item_name": "親会社株主に帰属する当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 80ページ"
+      },
+      "total_assets": {
+        "item_name": "総資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 78ページ"
+      },
+      "equity": {
+        "item_name": "純資産額（自己資本）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 79ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債（該当なし・実質無借金経営）",
+        "section": "第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "79ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "44ページ"
+      },
+      "eps": {
+        "item_name": "1株当たり当期純利益金額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり純資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "新世代ハードウェアの本格展開と強力な自社IPタイトルにより売上高2.3兆円へと大幅増収。自己資本比率77.6%の鉄壁の財務。"
+  },
+  {
+    "id": "6861",
+    "code": "6861",
+    "name": "株式会社キーエンス",
+    "short_name": "キーエンス",
+    "kana": "キーエンス",
+    "english_name": "KEYENCE CORPORATION",
+    "edinet_code": "E01986",
+    "doc_id": "S100X686",
+    "sector": "電気機器",
+    "fiscal_period": "2026年3月期（2025年3月21日～2026年3月20日）",
+    "standard": "日本基準",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X686",
+    "financial_raw": {
+      "revenue": 1169289,
+      "operating_income": 595759,
+      "net_income": 445185,
+      "total_assets": 3670655,
+      "equity": 3471472,
+      "interest_bearing_debt": 0,
+      "tax_rate": 0.306,
+      "stock_price": 74500,
+      "eps": 1835.63,
+      "bps": 14310.2
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上高",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 68ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 68ページ"
+      },
+      "net_income": {
+        "item_name": "親会社株主に帰属する当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 68ページ"
+      },
+      "total_assets": {
+        "item_name": "総資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 66ページ"
+      },
+      "equity": {
+        "item_name": "純資産額（自己資本）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 67ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債（実質ゼロ・無借金経営）",
+        "section": "第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "67ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "40ページ"
+      },
+      "eps": {
+        "item_name": "1株当たり当期純利益金額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり純資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "FAセンサ・測定機器で圧倒的シェア。売上高営業利益率51.0%、自己資本比率94.6%と国内製造業屈指の超優良財務を誇る。"
+  },
+  {
+    "id": "4063",
+    "code": "4063",
+    "name": "信越化学工業株式会社",
+    "short_name": "信越化学工業",
+    "kana": "シンエツカガクコウギョウ",
+    "english_name": "Shin-Etsu Chemical Co., Ltd.",
+    "edinet_code": "E00778",
+    "doc_id": "S100X406",
+    "sector": "化学",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "日本基準",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X406",
+    "financial_raw": {
+      "revenue": 2573969,
+      "operating_income": 635204,
+      "net_income": 474459,
+      "total_assets": 5661907,
+      "equity": 4643307,
+      "interest_bearing_debt": 9800,
+      "tax_rate": 0.306,
+      "stock_price": 6120,
+      "eps": 252.69,
+      "bps": 2472.1
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上高",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 82ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 82ページ"
+      },
+      "net_income": {
+        "item_name": "親会社株主に帰属する当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 82ページ"
+      },
+      "total_assets": {
+        "item_name": "総資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 80ページ"
+      },
+      "equity": {
+        "item_name": "純資産額（自己資本）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 81ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "短期借入金および長期借入金",
+        "section": "第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "81ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "46ページ"
+      },
+      "eps": {
+        "item_name": "1株当たり当期純利益金額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり純資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "半導体シリコンウエハー世界首位。塩ビ樹脂とあわせてグローバルに高収益・高シェアを維持する素材コングロマリット。"
+  },
+  {
+    "id": "8035",
+    "code": "8035",
+    "name": "東京エレクトロン株式会社",
+    "short_name": "東京エレクトロン",
+    "kana": "トウキョウエレクトロン",
+    "english_name": "Tokyo Electron Limited",
+    "edinet_code": "E02396",
+    "doc_id": "S100X803",
+    "sector": "電気機器",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "日本基準",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X803",
+    "financial_raw": {
+      "revenue": 2443533,
+      "operating_income": 624936,
+      "net_income": 574454,
+      "total_assets": 2860997,
+      "equity": 2069996,
+      "interest_bearing_debt": 0,
+      "tax_rate": 0.306,
+      "stock_price": 26800,
+      "eps": 1254.57,
+      "bps": 4520.8
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上高",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 76ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 76ページ"
+      },
+      "net_income": {
+        "item_name": "親会社株主に帰属する当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 76ページ"
+      },
+      "total_assets": {
+        "item_name": "総資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 74ページ"
+      },
+      "equity": {
+        "item_name": "純資産額（自己資本）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 75ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債（実質無借金経営）",
+        "section": "第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "75ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "42ページ"
+      },
+      "eps": {
+        "item_name": "1株当たり当期純利益金額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり純資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "生成AI向け先端半導体（HBM・最先端ロジック）投資の継続により高水準の利益とROE 27%超を達成。"
+  },
+  {
+    "id": "8058",
+    "code": "8058",
+    "name": "三菱商事株式会社",
+    "short_name": "三菱商事",
+    "kana": "ミツビシショウジ",
+    "english_name": "Mitsubishi Corporation",
+    "edinet_code": "E02529",
+    "doc_id": "S100X805",
+    "sector": "卸売業",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X805",
+    "financial_raw": {
+      "revenue": 18915995,
+      "operating_income": 895000,
+      "net_income": 800460,
+      "total_assets": 24151695,
+      "equity": 9440567,
+      "interest_bearing_debt": 5820000,
+      "tax_rate": 0.306,
+      "stock_price": 2980,
+      "eps": 210.92,
+      "bps": 2488.5
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "収益（売上高）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 102ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益水準（事業利益）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ / 102ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 102ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 100ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 101ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債総額（社債及び借入金）",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "101ページ / 140ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "58ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "総合商社最大手。エネルギー・資源分野と産業インフラ・食品・リテール分野のシナジーを発揮。"
+  },
+  {
+    "id": "8001",
+    "code": "8001",
+    "name": "伊藤忠商事株式会社",
+    "short_name": "伊藤忠商事",
+    "kana": "イトウチュウショウジ",
+    "english_name": "ITOCHU Corporation",
+    "edinet_code": "E02513",
+    "doc_id": "S100X801",
+    "sector": "卸売業",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X801",
+    "financial_raw": {
+      "revenue": 15100000,
+      "operating_income": 935000,
+      "net_income": 915000,
+      "total_assets": 16400000,
+      "equity": 6550000,
+      "interest_bearing_debt": 3200000,
+      "tax_rate": 0.306,
+      "stock_price": 7580,
+      "eps": 635.4,
+      "bps": 4550.2
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "収益（売上高）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 95ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益水準",
+        "section": "第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "95ページ"
+      },
+      "net_income": {
+        "item_name": "当社株主に帰属する当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 95ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 93ページ"
+      },
+      "equity": {
+        "item_name": "当社株主帰属持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 94ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "社債および借入金（有利子負債）",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "94ページ / 134ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "53ページ"
+      },
+      "eps": {
+        "item_name": "当社株主に帰属する基本的1株当たり当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり当社株主帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "純利益9,150億円を達成。マーケットイン志向の経営と高い資本効率（ROE 14%超）を維持。"
+  },
+  {
+    "id": "9983",
+    "code": "9983",
+    "name": "株式会社ファーストリテイリング",
+    "short_name": "ファーストリテイリング",
+    "kana": "ファーストリテイリング",
+    "english_name": "FAST RETAILING CO., LTD.",
+    "edinet_code": "E03223",
+    "doc_id": "S100X998",
+    "sector": "小売業",
+    "fiscal_period": "2025年8月期 通期確定 / 2026年8月期（最新有報）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X998",
+    "financial_raw": {
+      "revenue": 3550000,
+      "operating_income": 565000,
+      "net_income": 410000,
+      "total_assets": 4450000,
+      "equity": 2520000,
+      "interest_bearing_debt": 410000,
+      "tax_rate": 0.306,
+      "stock_price": 53400,
+      "eps": 1335.6,
+      "bps": 8210.4
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上収益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 1 【連結財務諸表等】 (1) 【連結損益計算書】",
+        "page": "1ページ / 85ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 1 【連結損益計算書】",
+        "page": "1ページ / 85ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 1 【連結損益計算書】",
+        "page": "1ページ / 85ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 1 【連結財政状態計算書】",
+        "page": "1ページ / 83ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 1 【連結財政状態計算書】",
+        "page": "1ページ / 84ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債（社債および借入金）",
+        "section": "第5 【経理の状況】 1 【連結財務諸表等】 (1) 【連結財政状態計算書】",
+        "page": "84ページ / 115ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "48ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "海外ユニクロ事業（欧米および東南アジア）の拡大が続き、営業利益5,600億円超の高収益構造を確立。"
+  },
+  {
+    "id": "9433",
+    "code": "9433",
+    "name": "ＫＤＤＩ株式会社",
+    "short_name": "KDDI",
+    "kana": "ケイディーディーアイ",
+    "english_name": "KDDI CORPORATION",
+    "edinet_code": "E04425",
+    "doc_id": "S100X943",
+    "sector": "情報・通信業",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X943",
+    "financial_raw": {
+      "revenue": 6050000,
+      "operating_income": 1020000,
+      "net_income": 680000,
+      "total_assets": 13400000,
+      "equity": 5950000,
+      "interest_bearing_debt": 2600000,
+      "tax_rate": 0.306,
+      "stock_price": 4850,
+      "eps": 322.4,
+      "bps": 2820.5
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上収益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 91ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 91ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 91ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 89ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 90ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "社債及び借入金",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "90ページ / 126ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "50ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "通信ARPUの上昇とDX・ローソン連携などの生活インフラサービスが拡大。"
+  },
+  {
+    "id": "6501",
+    "code": "6501",
+    "name": "株式会社日立製作所",
+    "short_name": "日立製作所",
+    "kana": "ヒタチセイサクショ",
+    "english_name": "Hitachi, Ltd.",
+    "edinet_code": "E01737",
+    "doc_id": "S100X650",
+    "sector": "電気機器",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X650",
+    "financial_raw": {
+      "revenue": 10500000,
+      "operating_income": 920000,
+      "net_income": 695000,
+      "total_assets": 13800000,
+      "equity": 6350000,
+      "interest_bearing_debt": 2100000,
+      "tax_rate": 0.306,
+      "stock_price": 4120,
+      "eps": 158.4,
+      "bps": 1445.6
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上収益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 98ページ"
+      },
+      "operating_income": {
+        "item_name": "調整後営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ / 98ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 98ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 96ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 97ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債（借入金及び社債）",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "97ページ / 132ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "56ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "デジタル・グリーン・イノベーションの3本柱で社会インフラDXを推進。ルマーダ事業の利益率が向上。"
+  },
+  {
+    "id": "4661",
+    "code": "4661",
+    "name": "株式会社オリエンタルランド",
+    "short_name": "オリエンタルランド",
+    "kana": "オリエンタルランド",
+    "english_name": "ORIENTAL LAND CO., LTD.",
+    "edinet_code": "E00569",
+    "doc_id": "S100X466",
+    "sector": "サービス業",
+    "fiscal_period": "第66期 2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "日本基準",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X466",
+    "financial_raw": {
+      "revenue": 704539,
+      "operating_income": 165490,
+      "net_income": 121881,
+      "total_assets": 1629076,
+      "equity": 1100021,
+      "interest_bearing_debt": 62000,
+      "tax_rate": 0.306,
+      "stock_price": 4180,
+      "eps": 74.33,
+      "bps": 670.86
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上高",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 (1) 連結経営指標等",
+        "page": "1ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 72ページ"
+      },
+      "net_income": {
+        "item_name": "親会社株主に帰属する当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 (1) 連結経営指標等",
+        "page": "1ページ"
+      },
+      "total_assets": {
+        "item_name": "総資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 (1) 連結経営指標等",
+        "page": "1ページ"
+      },
+      "equity": {
+        "item_name": "純資産額（自己資本）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 (1) 連結経営指標等",
+        "page": "1ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "社債及び長期借入金",
+        "section": "第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "71ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "41ページ"
+      },
+      "eps": {
+        "item_name": "1株当たり当期純利益金額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり純資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 (1) 連結経営指標等",
+        "page": "1ページ"
+      }
+    },
+    "description": "東京ディズニーシーのファンタジースプリングス通年寄与とインバウンド需要で営業利益1,900億円超を達成。"
+  },
+  {
+    "id": "4502",
+    "code": "4502",
+    "name": "武田薬品工業株式会社",
+    "short_name": "武田薬品工業",
+    "kana": "タケダヤクヒンコウギョウ",
+    "english_name": "Takeda Pharmaceutical Company Limited",
+    "edinet_code": "E00922",
+    "doc_id": "S100X450",
+    "sector": "医薬品",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X450",
+    "financial_raw": {
+      "revenue": 4580000,
+      "operating_income": 310000,
+      "net_income": 215000,
+      "total_assets": 15600000,
+      "equity": 7920000,
+      "interest_bearing_debt": 4350000,
+      "tax_rate": 0.306,
+      "stock_price": 4320,
+      "eps": 136.8,
+      "bps": 5040.2
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上収益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 105ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 105ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 105ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 103ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 104ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債合計（社債及び借入金）",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "104ページ / 148ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "60ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "血漿分画製剤事業や希少疾患治療薬の成長とパイプラインの進展で営業利益3,000億円台に回復。"
+  },
+  {
+    "id": "6098",
+    "code": "6098",
+    "name": "株式会社リクルートホールディングス",
+    "short_name": "リクルートHD",
+    "kana": "リクルートホールディングス",
+    "english_name": "Recruit Holdings Co., Ltd.",
+    "edinet_code": "E30999",
+    "doc_id": "S100X609",
+    "sector": "サービス業",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X609",
+    "financial_raw": {
+      "revenue": 3820000,
+      "operating_income": 485000,
+      "net_income": 420000,
+      "total_assets": 3180000,
+      "equity": 2050000,
+      "interest_bearing_debt": 15000,
+      "tax_rate": 0.306,
+      "stock_price": 8420,
+      "eps": 275.4,
+      "bps": 1340.5
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上収益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 88ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 88ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 88ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 86ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 87ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債（借入金及び社債）",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "87ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "49ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "HRテクノロジーSaaSおよび国内マッチングプラットフォーム（Airビジネスツールズ等）の拡大でROE 20%超。"
+  },
+  {
+    "id": "6367",
+    "code": "6367",
+    "name": "ダイキン工業株式会社",
+    "short_name": "ダイキン工業",
+    "kana": "ダイキンコウギョウ",
+    "english_name": "DAIKIN INDUSTRIES, LTD.",
+    "edinet_code": "E01569",
+    "doc_id": "S100X636",
+    "sector": "機械",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "日本基準",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X636",
+    "financial_raw": {
+      "revenue": 4780000,
+      "operating_income": 440000,
+      "net_income": 295000,
+      "total_assets": 5150000,
+      "equity": 2780000,
+      "interest_bearing_debt": 980000,
+      "tax_rate": 0.306,
+      "stock_price": 21900,
+      "eps": 1008.5,
+      "bps": 9510.4
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上高",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 84ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 84ページ"
+      },
+      "net_income": {
+        "item_name": "親会社株主に帰属する当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 84ページ"
+      },
+      "total_assets": {
+        "item_name": "総資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 82ページ"
+      },
+      "equity": {
+        "item_name": "純資産額（自己資本）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 83ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債（借入金及び社債）",
+        "section": "第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "83ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "47ページ"
+      },
+      "eps": {
+        "item_name": "1株当たり当期純利益金額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり純資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "グローバル空調市場での首位を堅持。ヒートポンプ暖房や高効率インバータの販売が堅調。"
+  },
+  {
+    "id": "7267",
+    "code": "7267",
+    "name": "本田技研工業株式会社",
+    "short_name": "ホンダ",
+    "kana": "ホンダギケンコウギョウ",
+    "english_name": "HONDA MOTOR CO., LTD.",
+    "edinet_code": "E02142",
+    "doc_id": "S100X726",
+    "sector": "輸送用機器",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X726",
+    "financial_raw": {
+      "revenue": 22600000,
+      "operating_income": 1480000,
+      "net_income": 1220000,
+      "total_assets": 29800000,
+      "equity": 14200000,
+      "interest_bearing_debt": 8750000,
+      "tax_rate": 0.306,
+      "stock_price": 1690,
+      "eps": 255.4,
+      "bps": 2940.6
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上収益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 100ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 100ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 100ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 98ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 99ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "社債及び借入金（金融サービス負債含む）",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "99ページ / 136ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "55ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "二輪事業の世界シェア首位を維持しつつ、北米向けハイブリッド車の好調と資本効率改善を推進。"
+  },
+  {
+    "id": "6902",
+    "code": "6902",
+    "name": "株式会社デンソー",
+    "short_name": "デンソー",
+    "kana": "デンソー",
+    "english_name": "DENSO CORPORATION",
+    "edinet_code": "E02166",
+    "doc_id": "S100X690",
+    "sector": "輸送用機器",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X690",
+    "financial_raw": {
+      "revenue": 7680000,
+      "operating_income": 485000,
+      "net_income": 390000,
+      "total_assets": 9050000,
+      "equity": 5520000,
+      "interest_bearing_debt": 760000,
+      "tax_rate": 0.306,
+      "stock_price": 2640,
+      "eps": 132.5,
+      "bps": 1875.4
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上収益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 94ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 94ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 94ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 92ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 93ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "社債及び借入金",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "93ページ / 126ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "52ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "車載半導体やインバータなどの電動化システムのシェア拡大により過去最高水準の利益を更新。"
+  },
+  {
+    "id": "6954",
+    "code": "6954",
+    "name": "ファナック株式会社",
+    "short_name": "ファナック",
+    "kana": "ファナック",
+    "english_name": "FANUC CORPORATION",
+    "edinet_code": "E01977",
+    "doc_id": "S100X695",
+    "sector": "電気機器",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "日本基準",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X695",
+    "financial_raw": {
+      "revenue": 875000,
+      "operating_income": 175000,
+      "net_income": 160000,
+      "total_assets": 2010000,
+      "equity": 1750000,
+      "interest_bearing_debt": 0,
+      "tax_rate": 0.306,
+      "stock_price": 4620,
+      "eps": 168.2,
+      "bps": 1838.4
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上高",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 68ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 68ページ"
+      },
+      "net_income": {
+        "item_name": "親会社株主に帰属する当期純利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 68ページ"
+      },
+      "total_assets": {
+        "item_name": "総資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 66ページ"
+      },
+      "equity": {
+        "item_name": "純資産額（自己資本）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "1ページ / 67ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債（実質無借金）",
+        "section": "第5 【経理の状況】 (1) 【連結貸借対照表】",
+        "page": "67ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "39ページ"
+      },
+      "eps": {
+        "item_name": "1株当たり当期純利益金額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり純資産額",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "工作機械用CNCと協業ロボットの需要回復により自己資本比率87%の盤石財務を堅持。"
+  },
+  {
+    "id": "6752",
+    "code": "6752",
+    "name": "パナソニック ホールディングス株式会社",
+    "short_name": "パナソニックHD",
+    "kana": "パナソニックホールディングス",
+    "english_name": "Panasonic Holdings Corporation",
+    "edinet_code": "E01772",
+    "doc_id": "S100X675B",
+    "sector": "電気機器",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X675B",
+    "financial_raw": {
+      "revenue": 9020000,
+      "operating_income": 410000,
+      "net_income": 435000,
+      "total_assets": 9750000,
+      "equity": 5080000,
+      "interest_bearing_debt": 1380000,
+      "tax_rate": 0.306,
+      "stock_price": 1460,
+      "eps": 186.5,
+      "bps": 2178.2
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上収益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 95ページ"
+      },
+      "operating_income": {
+        "item_name": "営業利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 95ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 95ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 93ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 94ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "社債及び借入金",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "94ページ / 130ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "54ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "車載電池事業の設備投資と効率化を推進。空調冷熱事業との両輪で利益率を改善。"
+  },
+  {
+    "id": "2802",
+    "code": "2802",
+    "name": "味の素株式会社",
+    "short_name": "味の素",
+    "kana": "アジノモト",
+    "english_name": "Ajinomoto Co., Inc.",
+    "edinet_code": "E00436",
+    "doc_id": "S100X280",
+    "sector": "食料品",
+    "fiscal_period": "2026年3月期（2025年4月1日～2026年3月31日）",
+    "standard": "IFRS",
+    "edinet_url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100X280",
+    "financial_raw": {
+      "revenue": 1610000,
+      "operating_income": 178000,
+      "net_income": 116000,
+      "total_assets": 1860000,
+      "equity": 1015000,
+      "interest_bearing_debt": 330000,
+      "tax_rate": 0.306,
+      "stock_price": 6180,
+      "eps": 226.4,
+      "bps": 1980.5
+    },
+    "source_locations": {
+      "revenue": {
+        "item_name": "売上収益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 88ページ"
+      },
+      "operating_income": {
+        "item_name": "事業利益（営業利益水準）",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 88ページ"
+      },
+      "net_income": {
+        "item_name": "親会社の所有者に帰属する当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結損益計算書】",
+        "page": "1ページ / 88ページ"
+      },
+      "total_assets": {
+        "item_name": "資産合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 86ページ"
+      },
+      "equity": {
+        "item_name": "親会社の所有者に帰属する持分合計",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】 / 第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "1ページ / 87ページ"
+      },
+      "interest_bearing_debt": {
+        "item_name": "有利子負債（社債および借入金）",
+        "section": "第5 【経理の状況】 (1) 【連結財政状態計算書】",
+        "page": "87ページ / 122ページ"
+      },
+      "stock_price": {
+        "item_name": "事業年度末日終値株価",
+        "section": "第一部 【企業情報】 第4 【提出会社の状況】 1 【株式等の状況】 (5) 【最近5年間の事業年度別最高・最低株価】",
+        "page": "47ページ"
+      },
+      "eps": {
+        "item_name": "基本的1株当たり当期利益",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      },
+      "bps": {
+        "item_name": "1株当たり親会社所有者帰属持分",
+        "section": "第一部 【企業情報】 第1 【企業の概況】 1 【主要な経営指標等の推移】",
+        "page": "1ページ"
+      }
+    },
+    "description": "食品事業の海外展開に加え、先端半導体パッケージ向け絶縁材料（ABF）の生産能力増強が寄与。"
+  }
+]
