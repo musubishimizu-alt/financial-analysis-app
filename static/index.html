@@ -81,10 +81,16 @@
     <section id="tab-analysis" class="space-y-6">
       <!-- Search & Filter Card -->
       <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200/80">
-        <label class="block text-sm font-semibold text-slate-700 mb-2">
-          <i class="fa-solid fa-magnifying-glass text-indigo-500 mr-1.5"></i>
-          企業を検索（企業名・銘柄コードで部分一致検索）
-        </label>
+        <div class="flex items-center justify-between mb-2">
+          <label class="block text-sm font-semibold text-slate-700">
+            <i class="fa-solid fa-magnifying-glass text-indigo-500 mr-1.5"></i>
+            企業を検索（企業名・銘柄コードで部分一致検索）
+          </label>
+          <button onclick="openAddCompanyModal()" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-200 flex items-center gap-1.5 transition shadow-sm">
+            <i class="fa-solid fa-plus-circle text-indigo-500"></i>
+            <span>企業を追加登録</span>
+          </button>
+        </div>
         <div class="relative">
           <div class="relative flex items-center">
             <input 
@@ -531,7 +537,145 @@
     </div>
   </footer>
 
-  <script src="/app.js?v=20260921_3"></script>
+  <!-- Modal: Add Company -->
+  <div id="add-company-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-xl w-full border border-slate-200 overflow-hidden transform transition-all my-8 animate-in fade-in zoom-in duration-200">
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-slate-900 via-slate-850 to-indigo-950 p-5 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/30 border border-indigo-400/40 flex items-center justify-center text-indigo-300 text-lg shadow-inner">
+            <i class="fa-solid fa-plus-circle"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">上場企業を有報分析に追加</h3>
+            <p class="text-xs text-slate-300">東証上場全企業（約3,600社）から検索し、最新有報・財務データを自動登録</p>
+          </div>
+        </div>
+        <button onclick="closeAddCompanyModal()" class="text-slate-400 hover:text-white p-2 rounded-lg transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 space-y-5">
+        <!-- Step 1: Candidate Search Input -->
+        <div id="modal-step-search" class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-1.5">
+              銘柄コード（4桁）または企業名を入力
+            </label>
+            <div class="flex gap-2">
+              <input 
+                type="text" 
+                id="modal-company-input" 
+                placeholder="例：4385、メルカリ、サイバーエージェント、4751..."
+                class="flex-1 px-4 py-2.5 border-2 border-slate-200 focus:border-indigo-500 rounded-xl outline-none text-slate-800 text-sm shadow-inner"
+                onkeydown="if(event.key==='Enter') searchModalCandidates()"
+              >
+              <button 
+                onclick="searchModalCandidates()" 
+                class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-xl text-sm font-bold transition flex items-center gap-2 shadow-sm"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>候補検索</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Candidates Result List -->
+          <div id="modal-candidates-list" class="max-h-64 overflow-y-auto space-y-1.5 divide-y divide-slate-100 hidden border border-slate-200 rounded-xl p-2 bg-slate-50/50">
+            <!-- Candidate Items Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Loading State for Fetching Financials -->
+        <div id="modal-fetch-loading" class="hidden py-10 text-center">
+          <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-indigo-500 border-t-transparent"></div>
+          <p id="modal-fetch-loading-text" class="mt-3 text-sm text-slate-600 font-medium">企業の最新有価証券報告書・決算データを取得中...</p>
+        </div>
+
+        <!-- Step 2: Financials Preview & Confirm -->
+        <div id="modal-step-preview" class="hidden space-y-4">
+          <div class="bg-indigo-50/70 border border-indigo-100 rounded-xl p-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <span id="preview-code" class="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded shadow-xs"></span>
+                <span id="preview-sector" class="text-xs font-semibold text-slate-600 ml-2"></span>
+                <span id="preview-market" class="text-xs text-slate-400 ml-1"></span>
+              </div>
+              <span id="preview-period" class="text-xs font-semibold text-indigo-700 bg-white px-2.5 py-1 rounded border border-indigo-200 shadow-xs"></span>
+            </div>
+            <h4 id="preview-name" class="text-xl font-bold text-slate-900 mt-1.5"></h4>
+          </div>
+
+          <!-- Extracted Key Values Grid -->
+          <div>
+            <span class="text-xs font-semibold text-slate-500 block mb-1.5">
+              <i class="fa-solid fa-file-invoice-dollar text-indigo-500 mr-1"></i> 自動取得された決算・株式データ：
+            </span>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+              <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                <span class="text-slate-500 block">事業年度末終値株価</span>
+                <span id="preview-val-price" class="font-bold text-slate-800 text-sm"></span>
+              </div>
+              <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                <span class="text-slate-500 block">売上収益 / 売上高</span>
+                <span id="preview-val-rev" class="font-bold text-slate-800 text-sm"></span>
+              </div>
+              <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                <span class="text-slate-500 block">営業利益</span>
+                <span id="preview-val-op" class="font-bold text-slate-800 text-sm"></span>
+              </div>
+              <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                <span class="text-slate-500 block">当期純利益</span>
+                <span id="preview-val-net" class="font-bold text-slate-800 text-sm"></span>
+              </div>
+              <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                <span class="text-slate-500 block">資産合計</span>
+                <span id="preview-val-assets" class="font-bold text-slate-800 text-sm"></span>
+              </div>
+              <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                <span class="text-slate-500 block">自己資本 / 純資産</span>
+                <span id="preview-val-equity" class="font-bold text-slate-800 text-sm"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calculated Metrics Preview Badge List -->
+          <div class="pt-2 border-t border-slate-100">
+            <span class="text-xs font-semibold text-slate-600 block mb-2">
+              <i class="fa-solid fa-chart-pie text-emerald-500 mr-1"></i> 即時算定される7大財務指標：
+            </span>
+            <div id="preview-metrics-badges" class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+              <!-- Injected by JS -->
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-3">
+            <button 
+              type="button"
+              onclick="backToCandidateSearch()" 
+              class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition"
+            >
+              <i class="fa-solid fa-arrow-left mr-1"></i> 戻る
+            </button>
+            <button 
+              id="btn-confirm-add-company"
+              type="button"
+              onclick="confirmAddCompany()" 
+              class="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-xl text-sm font-bold transition flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+            >
+              <i class="fa-solid fa-check"></i>
+              <span>この企業を有報分析に登録する</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js?v=20260922_1"></script>
   <!-- Toast Notification -->
   <div id="toast-notify" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 text-sm">
     <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">

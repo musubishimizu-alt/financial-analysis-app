@@ -9,10 +9,11 @@ import json
 import urllib.parse
 from pathlib import Path
 from typing import Dict, Any, List
+import os
 
 from financial_calculator import calculate_metrics, generate_quiz
+from financial_scraper import search_company_candidates, fetch_company_financials
 
-import os
 PORT = int(os.environ.get("PORT", 8000))
 BASE_DIR = Path(__file__).parent
 DATA_FILE = BASE_DIR / "data" / "companies_data.json"
@@ -59,20 +60,45 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
                     )
                     if not match:
                         continue
-                results.append({
-                    "id": c["id"],
-                    "code": c["code"],
-                    "name": c["name"],
-                    "short_name": c["short_name"],
-                    "sector": c["sector"],
-                    "fiscal_period": c["fiscal_period"],
-                    "standard": c["standard"],
-                    "edinet_code": c["edinet_code"]
-                })
-            self.send_json_response(results)
+                results.append(c)
+
+            formatted = [{
+                "id": c["id"],
+                "code": c["code"],
+                "name": c["name"],
+                "short_name": c["short_name"],
+                "sector": c["sector"],
+                "fiscal_period": c["fiscal_period"],
+                "standard": c["standard"],
+                "edinet_code": c["edinet_code"]
+            } for c in results]
+            self.send_json_response(formatted)
             return
 
-        # 2. API: Company Details & Calculated Metrics
+        # 2. API: Search Candidates from JPX Master (for adding new company)
+        if path == "/api/companies/search_candidates":
+            q = query.get("q", [""])[0].strip()
+            candidates = search_company_candidates(q)
+            existing_codes = {c["code"] for c in companies_cache}
+            for cand in candidates:
+                cand["is_registered"] = (cand["code"] in existing_codes)
+            self.send_json_response(candidates)
+            return
+
+        # 3. API: Fetch Financials for specified stock code
+        if path == "/api/companies/fetch_financials":
+            code = query.get("code", [""])[0].strip()
+            if not code:
+                self.send_json_response({"error": "Stock code is required"}, status=400)
+                return
+            try:
+                data = fetch_company_financials(code)
+                self.send_json_response(data)
+            except Exception as e:
+                self.send_json_response({"error": f"Failed to fetch financials: {str(e)}"}, status=500)
+            return
+
+        # 4. API: Company Details & Calculated Metrics
         if path.startswith("/api/companies/"):
             comp_id = path.replace("/api/companies/", "").strip("/")
             company = next((c for c in companies_cache if c["id"] == comp_id or c["code"] == comp_id), None)
@@ -103,7 +129,7 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
             self.send_json_response(response_data)
             return
 
-        # 3. API: Generate Quiz
+        # 5. API: Generate Quiz
         if path == "/api/quiz":
             if not companies_cache:
                 self.send_json_response({"error": "No companies loaded"}, status=500)
@@ -112,7 +138,7 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
             self.send_json_response(quiz_data)
             return
 
-        # 4. API: Stats & Sectors
+        # 6. API: Stats & Sectors
         if path == "/api/meta":
             sectors = sorted(list({c["sector"] for c in companies_cache}))
             self.send_json_response({
@@ -139,6 +165,7 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
 
+        # 1. Check Quiz Answer
         if path == "/api/quiz/check":
             content_length = int(self.headers.get("Content-Length", 0))
             body = self.rfile.read(content_length).decode("utf-8")
@@ -156,6 +183,40 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
                 "is_correct": is_correct,
                 "selected_option": user_choice,
                 "correct_option": correct_choice
+            })
+            return
+
+        # 2. Add New Company
+        if path == "/api/companies/add":
+            content_length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(content_length).decode("utf-8")
+            try:
+                new_company = json.loads(body)
+            except Exception:
+                self.send_json_response({"error": "Invalid JSON format"}, status=400)
+                return
+
+            code = str(new_company.get("code", "")).strip()
+            if not code:
+                self.send_json_response({"error": "Stock code is required"}, status=400)
+                return
+
+            global companies_cache
+            existing_idx = next((i for i, c in enumerate(companies_cache) if c["code"] == code), None)
+            if existing_idx is not None:
+                companies_cache[existing_idx] = new_company
+            else:
+                companies_cache.append(new_company)
+
+            # Persist to JSON file
+            with open(DATA_FILE, "w", encoding="utf-8") as f:
+                json.dump(companies_cache, f, ensure_ascii=False, indent=2)
+
+            self.send_json_response({
+                "success": True,
+                "message": f"「{new_company.get('name', code)}」を有報分析対象に登録しました！",
+                "company_id": new_company.get("id", code),
+                "code": code
             })
             return
 

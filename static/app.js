@@ -107,12 +107,16 @@ function handleSearchInput(e) {
 
   if (matches.length === 0) {
     searchDropdown.innerHTML = `
-      <div class="p-4 text-center text-sm text-slate-400">
-        該当する企業が見つかりませんでした
+      <div class="p-4 text-center">
+        <div class="text-sm text-slate-500 mb-2">「${escapeHtml(query)}」は現在登録されていません</div>
+        <button onclick="openAddCompanyModal('${escapeHtml(query)}')" class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition shadow-sm">
+          <i class="fa-solid fa-plus-circle"></i>
+          <span>「${escapeHtml(query)}」を新規追加登録する</span>
+        </button>
       </div>
     `;
   } else {
-    searchDropdown.innerHTML = matches.map(c => `
+    let html = matches.map(c => `
       <div onclick="selectCompany('${c.id}')" class="px-4 py-3 hover:bg-indigo-50/80 cursor-pointer transition flex items-center justify-between group">
         <div>
           <div class="font-bold text-slate-800 group-hover:text-indigo-700 flex items-center gap-2">
@@ -126,6 +130,17 @@ function handleSearchInput(e) {
         <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-indigo-500 text-sm"></i>
       </div>
     `).join('');
+
+    // リスト末尾にも「見つからない場合は新規追加」の案内リンクを添える
+    html += `
+      <div class="p-2.5 bg-slate-50/70 border-t border-slate-100 text-center">
+        <button onclick="openAddCompanyModal('${escapeHtml(query)}')" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 hover:underline inline-flex items-center gap-1">
+          <i class="fa-solid fa-plus text-2xs"></i>
+          <span>お探しの企業がない場合は、ここから新規追加登録できます</span>
+        </button>
+      </div>
+    `;
+    searchDropdown.innerHTML = html;
   }
 
   searchDropdown.classList.remove('hidden');
@@ -532,3 +547,229 @@ function showToast(title, desc) {
     toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
   }, 4500);
 }
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// ==============================================================
+// ADD COMPANY FEATURE (東証上場全銘柄から検索・最新有報自動登録)
+// ==============================================================
+let currentAddPreviewCompany = null;
+
+function openAddCompanyModal(initialQuery = '') {
+  const modal = document.getElementById('add-company-modal');
+  const input = document.getElementById('modal-company-input');
+  const candidatesList = document.getElementById('modal-candidates-list');
+  const searchStep = document.getElementById('modal-step-search');
+  const previewStep = document.getElementById('modal-step-preview');
+  const loading = document.getElementById('modal-fetch-loading');
+
+  searchStep.classList.remove('hidden');
+  previewStep.classList.add('hidden');
+  loading.classList.add('hidden');
+  candidatesList.classList.add('hidden');
+  candidatesList.innerHTML = '';
+
+  modal.classList.remove('hidden');
+  if (initialQuery) {
+    input.value = initialQuery;
+    searchModalCandidates();
+  } else {
+    input.value = '';
+    setTimeout(() => input.focus(), 80);
+  }
+}
+
+function closeAddCompanyModal() {
+  const modal = document.getElementById('add-company-modal');
+  modal.classList.add('hidden');
+}
+
+async function searchModalCandidates() {
+  const input = document.getElementById('modal-company-input');
+  const q = input.value.trim();
+  if (!q) return;
+
+  const list = document.getElementById('modal-candidates-list');
+  list.classList.remove('hidden');
+  list.innerHTML = `
+    <div class="py-6 text-center text-xs text-slate-500">
+      <i class="fa-solid fa-spinner fa-spin mr-1 text-indigo-500 text-sm"></i> 東証上場銘柄マスター（約3,600社）を検索中...
+    </div>
+  `;
+
+  try {
+    const res = await fetch(`/api/companies/search_candidates?q=${encodeURIComponent(q)}`);
+    const candidates = await res.json();
+
+    if (!candidates || candidates.length === 0) {
+      list.innerHTML = `
+        <div class="py-6 text-center text-xs text-slate-400">
+          「${escapeHtml(q)}」に一致する上場企業が見つかりませんでした。<br>
+          <span class="text-slate-500">4桁の銘柄コード（例：4385）または正式社名でお試しください。</span>
+        </div>
+      `;
+      return;
+    }
+
+    list.innerHTML = candidates.map(c => `
+      <div class="p-3 hover:bg-indigo-50/70 rounded-xl flex items-center justify-between transition gap-2 group bg-white border border-slate-100 shadow-2xs">
+        <div>
+          <div class="font-bold text-slate-800 text-sm flex items-center gap-2">
+            <span>${escapeHtml(c.name)}</span>
+            <span class="text-xs bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-mono font-bold">${c.code}</span>
+            ${c.is_registered ? '<span class="text-2xs bg-emerald-100 text-emerald-700 font-semibold px-1.5 py-0.5 rounded">登録済</span>' : ''}
+          </div>
+          <div class="text-xs text-slate-500 mt-0.5">
+            ${escapeHtml(c.sector)} • ${escapeHtml(c.market || '東証')}
+          </div>
+        </div>
+        <div>
+          ${c.is_registered ? `
+            <button onclick="closeAddCompanyModal(); selectCompany('${c.code}');" class="px-3 py-1.5 text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-semibold transition flex items-center gap-1">
+              <span>分析を開く</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          ` : `
+            <button onclick="selectCandidateForAdd('${c.code}')" class="px-3.5 py-1.5 text-xs bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-lg font-bold transition shadow-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-cloud-arrow-down"></i>
+              <span>有報を取得</span>
+            </button>
+          `}
+        </div>
+      </div>
+    `).join('');
+  } catch (err) {
+    list.innerHTML = `
+      <div class="py-4 text-center text-xs text-rose-500">
+        候補検索エラーが発生しました: ${escapeHtml(err.message)}
+      </div>
+    `;
+  }
+}
+
+async function selectCandidateForAdd(code) {
+  const searchStep = document.getElementById('modal-step-search');
+  const previewStep = document.getElementById('modal-step-preview');
+  const loading = document.getElementById('modal-fetch-loading');
+  const loadingText = document.getElementById('modal-fetch-loading-text');
+
+  searchStep.classList.add('hidden');
+  loading.classList.remove('hidden');
+  loadingText.textContent = `銘柄コード【${code}】の最新有価証券報告書・決算データを取得中...`;
+
+  try {
+    const res = await fetch(`/api/companies/fetch_financials?code=${code}`);
+    if (!res.ok) {
+      throw new Error(`データ取得に失敗しました (ステータス: ${res.status})`);
+    }
+    const data = await res.json();
+    currentAddPreviewCompany = data;
+
+    // プレビュー情報の設定
+    document.getElementById('preview-code').textContent = data.code;
+    document.getElementById('preview-name').textContent = data.name;
+    document.getElementById('preview-sector').textContent = data.sector;
+    document.getElementById('preview-market').textContent = `• ${data.standard}`;
+    document.getElementById('preview-period').textContent = data.fiscal_period;
+
+    const raw = data.financial_raw;
+    document.getElementById('preview-val-price').textContent = `${(raw.stock_price || 0).toLocaleString()} 円`;
+    document.getElementById('preview-val-rev').textContent = `${(raw.revenue || 0).toLocaleString()} 百万円`;
+    document.getElementById('preview-val-op').textContent = `${(raw.operating_income || 0).toLocaleString()} 百万円`;
+    document.getElementById('preview-val-net').textContent = `${(raw.net_income || 0).toLocaleString()} 百万円`;
+    document.getElementById('preview-val-assets').textContent = `${(raw.total_assets || 0).toLocaleString()} 百万円`;
+    document.getElementById('preview-val-equity').textContent = `${(raw.equity || 0).toLocaleString()} 百万円`;
+
+    // 7大指標プレビューバッジ算定
+    const badgesContainer = document.getElementById('preview-metrics-badges');
+    const eqRatio = raw.total_assets > 0 ? (raw.equity / raw.total_assets * 100).toFixed(1) : '-';
+    const roe = raw.equity > 0 ? (raw.net_income / raw.equity * 100).toFixed(1) : '-';
+    const pbr = raw.bps > 0 ? (raw.stock_price / raw.bps).toFixed(2) : '-';
+    const per = raw.eps > 0 ? (raw.stock_price / raw.eps).toFixed(1) : '-';
+    const roa = raw.total_assets > 0 ? (raw.net_income / raw.total_assets * 100).toFixed(1) : '-';
+    const opMargin = raw.revenue > 0 ? (raw.operating_income / raw.revenue * 100).toFixed(1) : '-';
+
+    badgesContainer.innerHTML = `
+      <div class="bg-indigo-50/80 border border-indigo-100 p-2 rounded-xl text-center">
+        <span class="text-2xs text-slate-500 block font-medium">自己資本比率</span>
+        <span class="text-xs font-bold text-indigo-700">${eqRatio}%</span>
+      </div>
+      <div class="bg-indigo-50/80 border border-indigo-100 p-2 rounded-xl text-center">
+        <span class="text-2xs text-slate-500 block font-medium">ROE</span>
+        <span class="text-xs font-bold text-indigo-700">${roe}%</span>
+      </div>
+      <div class="bg-indigo-50/80 border border-indigo-100 p-2 rounded-xl text-center">
+        <span class="text-2xs text-slate-500 block font-medium">PBR</span>
+        <span class="text-xs font-bold text-indigo-700">${pbr}倍</span>
+      </div>
+      <div class="bg-indigo-50/80 border border-indigo-100 p-2 rounded-xl text-center">
+        <span class="text-2xs text-slate-500 block font-medium">PER</span>
+        <span class="text-xs font-bold text-indigo-700">${per}倍</span>
+      </div>
+      <div class="bg-indigo-50/80 border border-indigo-100 p-2 rounded-xl text-center">
+        <span class="text-2xs text-slate-500 block font-medium">ROA</span>
+        <span class="text-xs font-bold text-indigo-700">${roa}%</span>
+      </div>
+      <div class="bg-indigo-50/80 border border-indigo-100 p-2 rounded-xl text-center">
+        <span class="text-2xs text-slate-500 block font-medium">営業利益率</span>
+        <span class="text-xs font-bold text-indigo-700">${opMargin}%</span>
+      </div>
+    `;
+
+    loading.classList.add('hidden');
+    previewStep.classList.remove('hidden');
+
+  } catch (err) {
+    loading.classList.add('hidden');
+    searchStep.classList.remove('hidden');
+    alert(`有報データ取得エラー: ${err.message}`);
+  }
+}
+
+function backToCandidateSearch() {
+  document.getElementById('modal-step-preview').classList.add('hidden');
+  document.getElementById('modal-step-search').classList.remove('hidden');
+}
+
+async function confirmAddCompany() {
+  if (!currentAddPreviewCompany) return;
+  const btn = document.getElementById('btn-confirm-add-company');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> 登録処理中...`;
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/companies/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(currentAddPreviewCompany)
+    });
+    const result = await res.json();
+    if (!res.ok || !result.success) {
+      throw new Error(result.error || '登録処理に失敗しました');
+    }
+
+    closeAddCompanyModal();
+    showToast('有報登録完了', result.message);
+
+    // 企業リスト更新＆該当企業を開く
+    await fetchCompaniesList();
+    renderQuickPicks();
+    selectCompany(result.company_id || currentAddPreviewCompany.code);
+
+  } catch (err) {
+    alert(`登録エラー: ${err.message}`);
+  } finally {
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+  }
+}
+
