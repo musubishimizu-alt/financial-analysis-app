@@ -13,6 +13,7 @@ import os
 
 from financial_calculator import calculate_metrics, generate_quiz
 from financial_scraper import search_company_candidates, fetch_company_financials
+from edinet.edinet_client import edinet_client
 
 PORT = int(os.environ.get("PORT", 8000))
 BASE_DIR = Path(__file__).parent
@@ -144,6 +145,7 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
             self.send_json_response({
                 "company_count": len(companies_cache),
                 "sectors": sectors,
+                "edinet_api_active": edinet_client.is_configured(),
                 "supported_metrics": [
                     {"key": "equity_ratio", "name": "自己資本比率", "lead": "財務健全性の最重要指標"},
                     {"key": "roe", "name": "ROE（自己資本利益率）", "lead": "株主目線での資本効率"},
@@ -234,10 +236,12 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
 def run_server():
     server_address = ("", PORT)
     with socketserver.ThreadingTCPServer(server_address, FinancialAppHandler) as httpd:
+        edinet_status = "ENABLED (金融庁公式API連携中)" if edinet_client.is_configured() else "FALLBACK (公開Webデータ連携)"
         print(f"===========================================================")
         print(f" Financial Analysis & Quiz App is running!")
         print(f" URL: http://localhost:{PORT}")
         print(f" Loaded {len(companies_cache)} companies from EDINET reports.")
+        print(f" EDINET API v2: {edinet_status}")
         print(f" Supported: 自己資本比率, ROE, ROIC, PBR, PER, ROA, 営業利益率")
         print(f" Press Ctrl+C to stop.")
         print(f"===========================================================")

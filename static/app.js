@@ -15,6 +15,7 @@ const companyDisplay = document.getElementById('company-display');
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', async () => {
+  await fetchMeta();
   await fetchCompaniesList();
   renderQuickPicks();
 
@@ -62,6 +63,20 @@ function switchTab(tabId) {
 
   if (tabId === 'quiz' && !currentQuiz) {
     fetchNextQuiz();
+  }
+}
+
+// Fetch metadata (stats, sectors, EDINET API state)
+async function fetchMeta() {
+  try {
+    const res = await fetch('/api/meta');
+    const meta = await res.json();
+    const badge = document.getElementById('edinet-api-badge');
+    if (badge && meta.edinet_api_active) {
+      badge.classList.remove('hidden');
+    }
+  } catch (err) {
+    console.warn('Could not fetch meta:', err);
   }
 }
 
@@ -176,6 +191,16 @@ function renderCompanyDetails(data) {
   document.getElementById('disp-code').textContent = `コード: ${c.code}`;
   document.getElementById('disp-sector').textContent = c.sector;
   document.getElementById('disp-standard').textContent = c.standard;
+  
+  const verifiedBadge = document.getElementById('disp-edinet-verified');
+  if (verifiedBadge) {
+    if (c.edinet_verified || (c.doc_id && c.doc_id.startsWith('S100'))) {
+      verifiedBadge.classList.remove('hidden');
+    } else {
+      verifiedBadge.classList.add('hidden');
+    }
+  }
+
   document.getElementById('disp-fiscal-text').textContent = c.fiscal_period;
   document.getElementById('disp-name').textContent = c.name;
   document.getElementById('disp-desc').textContent = c.description;
@@ -183,7 +208,9 @@ function renderCompanyDetails(data) {
   if (discLink) discLink.href = c.disclosure_url || `https://kabutan.jp/stock/kaiji/?code=${c.code}`;
   
   const edinetBtnLabel = document.getElementById('label-edinet-code');
-  if (edinetBtnLabel) edinetBtnLabel.textContent = `EDINET: ${c.edinet_code}`;
+  if (edinetBtnLabel) {
+    edinetBtnLabel.textContent = c.doc_id ? `有報: ${c.doc_id}` : `EDINET: ${c.edinet_code}`;
+  }
 
   // Raw stats
   const raw = c.financial_raw;
@@ -485,26 +512,42 @@ function handleDisclosureClick(event) {
   window.open(targetUrl, '_blank', 'noopener,noreferrer');
 }
 
-// Open EDINET Search and Copy Company Code reliably
+// Open EDINET Document Viewer or Search with 1-Click Code Copy
 function openEdinetWithCopy(event) {
   if (event) event.preventDefault();
 
   let code = "E02144";
   let name = "トヨタ自動車";
+  let targetUrl = "https://disclosure2.edinet-fsa.go.jp/";
+  let isDirectDoc = false;
+
   if (currentCompany && currentCompany.company) {
     const comp = currentCompany.company;
     code = comp.edinet_code || comp.code;
     name = comp.short_name || comp.name;
+    
+    // もしdoc_idが存在し、edinet_urlが公式ビューワー形式なら直行
+    if (comp.doc_id && comp.edinet_url && comp.edinet_url.includes('WZEK0040.aspx')) {
+      targetUrl = comp.edinet_url;
+      isDirectDoc = true;
+    } else if (comp.doc_id && comp.doc_id.startsWith('S100')) {
+      targetUrl = `https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?${comp.doc_id}`;
+      isDirectDoc = true;
+    }
   }
 
-  // 1. Copy to clipboard with universal fallback
+  // 1. Copy to clipboard
   copyTextToClipboard(code);
 
   // 2. Show user feedback toast immediately
-  showToast('EDINETコードをコピーしました！', `「${code}」（${name}）をクリップボードにコピーしました。EDINET検索窓に貼り付けて検索できます。`);
+  if (isDirectDoc) {
+    showToast('EDINET有報原本を開きます', `「${name}」の金融庁公式有報ビューワーに直行します（コード「${code}」もコピー済）。`);
+  } else {
+    showToast('EDINETコードをコピーしました！', `「${code}」（${name}）をクリップボードにコピーしました。EDINET検索窓で貼り付けて検索できます。`);
+  }
 
-  // 3. Open EDINET search synchronously to avoid popup blocker
-  window.open('https://disclosure2.edinet-fsa.go.jp/', '_blank', 'noopener,noreferrer');
+  // 3. Open EDINET window synchronously to prevent popup blocker
+  window.open(targetUrl, '_blank', 'noopener,noreferrer');
 }
 
 // Robust clipboard copy function (supports modern API + fallback)

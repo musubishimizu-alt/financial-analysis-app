@@ -11,6 +11,8 @@ import json
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
+from edinet.edinet_client import edinet_client
+
 BASE_DIR = Path(__file__).parent
 DATA_DIR = BASE_DIR / "data"
 JPX_MASTER_FILE = DATA_DIR / "jpx_listed_companies.json"
@@ -181,6 +183,25 @@ def fetch_company_financials(code: str) -> Dict[str, Any]:
     if not (formal_name.startswith("株式会社") or formal_name.endswith("株式会社")):
         formal_name = f"株式会社{formal_name}"
 
+    # 3. EDINET API (v2) 公式照合（APIキーが有効な場合）
+    doc_id = ""
+    edinet_code = f"E{code}"
+    edinet_view_url = "https://disclosure2.edinet-fsa.go.jp/"
+    edinet_verified = False
+
+    if edinet_client.is_configured():
+        try:
+            print(f"Checking official EDINET API v2 for code {code}...")
+            yuho_info = edinet_client.find_latest_yuho_for_company(code)
+            if yuho_info:
+                doc_id = yuho_info.get("doc_id", "")
+                edinet_code = yuho_info.get("edinet_code", edinet_code)
+                edinet_view_url = yuho_info.get("view_url", edinet_view_url)
+                edinet_verified = True
+                print(f"Verified via EDINET API v2! docID: {doc_id}, URL: {edinet_view_url}")
+        except Exception as e:
+            print(f"Notice: EDINET API check skipped: {e}")
+
     return {
         "id": code,
         "code": code,
@@ -188,12 +209,13 @@ def fetch_company_financials(code: str) -> Dict[str, Any]:
         "short_name": clean_name.replace("株式会社", "").strip(),
         "kana": clean_name.replace("株式会社", "").strip(),
         "english_name": f"{clean_name.replace('株式会社', '').strip()} Co., Ltd.",
-        "edinet_code": f"E{code}",
-        "doc_id": f"S100{code}",
+        "edinet_code": edinet_code,
+        "doc_id": doc_id,
         "sector": sector,
         "fiscal_period": fiscal_period,
         "standard": standard,
-        "edinet_url": "https://disclosure2.edinet-fsa.go.jp/",
+        "edinet_url": edinet_view_url,
+        "edinet_verified": edinet_verified,
         "financial_raw": {
             "revenue": revenue,
             "operating_income": operating_income,

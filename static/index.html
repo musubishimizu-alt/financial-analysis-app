@@ -44,9 +44,13 @@
             <i class="fa-solid fa-chart-line"></i>
           </div>
           <div>
-            <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+            <h1 class="text-lg font-bold tracking-tight text-white flex flex-wrap items-center gap-2">
               EDINET 財務分析・クイズ
               <span class="text-xs bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 px-2 py-0.5 rounded-full font-medium">有報最新データ</span>
+              <span id="edinet-api-badge" class="hidden text-xs bg-emerald-500/25 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded-full font-medium flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                金融庁公式API連携
+              </span>
             </h1>
             <p class="text-xs text-slate-400 hidden sm:block">国内上場企業の有価証券報告書から投資指標（ROE・PBR・PER等）を完全可視化</p>
           </div>
@@ -150,6 +154,10 @@
                 </span>
                 <span id="disp-standard" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                   IFRS
+                </span>
+                <span id="disp-edinet-verified" class="hidden px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-500/25 text-emerald-300 border border-emerald-500/35 flex items-center gap-1">
+                  <i class="fa-solid fa-shield-halved text-2xs text-emerald-400"></i>
+                  EDINET公式原本照合済
                 </span>
                 <span id="disp-fiscal" class="text-xs text-slate-400 flex items-center gap-1">
                   <i class="fa-regular fa-calendar-check"></i>
@@ -675,7 +683,7 @@
     </div>
   </div>
 
-  <script src="/app.js?v=20260922_1"></script>
+  <script src="/app.js?v=20260922_2"></script>
   <!-- Toast Notification -->
   <div id="toast-notify" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 text-sm">
     <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
