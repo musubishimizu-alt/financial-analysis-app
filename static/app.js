@@ -80,6 +80,26 @@ async function fetchMeta() {
   }
 }
 
+// Trigger Batch EDINET docID Sync
+async function triggerEdinetSync() {
+  showToast('EDINET同期中...', '金融庁APIから登録企業の最新有報原本docIDを探索・同期しています...');
+  try {
+    const res = await fetch('/api/companies/sync_edinet', { method: 'POST' });
+    const data = await res.json();
+    if (data.success) {
+      showToast('EDINET同期完了！', data.message);
+      await fetchCompaniesList();
+      if (currentCompany && currentCompany.company) {
+        selectCompany(currentCompany.company.id);
+      }
+    } else {
+      alert(`同期エラー: ${data.error}`);
+    }
+  } catch (err) {
+    alert(`通信エラー: ${err.message}`);
+  }
+}
+
 // Fetch all companies list
 async function fetchCompaniesList() {
   try {
@@ -509,6 +529,33 @@ function handleDisclosureClick(event) {
   
   // If clicked, open targetUrl directly
   event.preventDefault();
+  window.open(targetUrl, '_blank', 'noopener,noreferrer');
+}
+
+// Open Direct EDINET Document Viewer (WZEK0040.aspx?{docID})
+function openDirectYuho(event) {
+  if (event) event.preventDefault();
+
+  let targetUrl = "https://disclosure2.edinet-fsa.go.jp/";
+  let compName = "選択企業";
+  let edinetCode = "E02144";
+
+  if (currentCompany && currentCompany.company) {
+    const comp = currentCompany.company;
+    compName = comp.short_name || comp.name;
+    edinetCode = comp.edinet_code || comp.code;
+
+    // doc_id が存在する場合、金融庁公式ビューワーURL（WZEK0040.aspx?{docID}）へ1発直行
+    if (comp.doc_id && comp.doc_id.startsWith('S100')) {
+      targetUrl = `https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?${comp.doc_id}`;
+      showToast('金融庁EDINET有報原本を開きます', `「${compName}」の公式有価証券報告書ビューワーに直行します。`);
+    } else {
+      // フォールバック（EDINETコードをコピーしてトップを開く）
+      copyTextToClipboard(edinetCode);
+      showToast('EDINETコードをコピーしました', `「${edinetCode}」（${compName}）をコピーしました。検索窓で貼り付けて検索できます。`);
+    }
+  }
+
   window.open(targetUrl, '_blank', 'noopener,noreferrer');
 }
 

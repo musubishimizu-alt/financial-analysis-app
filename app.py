@@ -222,6 +222,24 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
             })
             return
 
+        # 3. Batch Sync EDINET Official docIDs for all registered companies
+        if path == "/api/companies/sync_edinet":
+            if not edinet_client.is_configured():
+                self.send_json_response({
+                    "success": False,
+                    "error": "EDINET APIキーが設定されていません。.env または環境変数 EDINET_API_KEY を設定してください。"
+                }, status=400)
+                return
+
+            updated = edinet_client.sync_all_registered_companies(DATA_FILE)
+            load_data()  # メモリキャッシュ再読み込み
+            self.send_json_response({
+                "success": True,
+                "message": f"金融庁EDINET APIから{updated}社の最新有報原本docID・直行リンクを同期しました！",
+                "updated_count": updated
+            })
+            return
+
         self.send_json_response({"error": "Not Found"}, status=404)
 
     def send_json_response(self, data: Any, status: int = 200):

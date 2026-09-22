@@ -47,9 +47,10 @@
             <h1 class="text-lg font-bold tracking-tight text-white flex flex-wrap items-center gap-2">
               EDINET 財務分析・クイズ
               <span class="text-xs bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 px-2 py-0.5 rounded-full font-medium">有報最新データ</span>
-              <span id="edinet-api-badge" class="hidden text-xs bg-emerald-500/25 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded-full font-medium flex items-center gap-1.5">
+              <span id="edinet-api-badge" onclick="triggerEdinetSync()" title="クリックで全社の最新有報docIDを一括同期" class="hidden text-xs bg-emerald-500/25 hover:bg-emerald-500/35 text-emerald-300 border border-emerald-500/40 px-2.5 py-0.5 rounded-full font-medium flex items-center gap-1.5 cursor-pointer transition shadow-xs">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                金融庁公式API連携
+                <span>金融庁公式API連携</span>
+                <i class="fa-solid fa-arrows-rotate text-2xs opacity-80 ml-0.5"></i>
               </span>
             </h1>
             <p class="text-xs text-slate-400 hidden sm:block">国内上場企業の有価証券報告書から投資指標（ROE・PBR・PER等）を完全可視化</p>
@@ -175,18 +176,18 @@
 
             <!-- EDINET & Disclosure Action Buttons -->
             <div class="flex-shrink-0 flex flex-col sm:flex-row gap-2">
-              <!-- Direct Disclosure Viewer Link (100% Reliable by Stock Code) -->
-              <a id="disp-disclosure-link" href="https://kabutan.jp/stock/kaiji/?code=7203" target="_blank" rel="noopener noreferrer" onclick="handleDisclosureClick(event)" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-sm transition-all shadow-md hover:shadow-emerald-500/20 cursor-pointer">
-                <i class="fa-solid fa-file-invoice"></i>
-                <span>有報・適時開示を開く</span>
+              <!-- Primary: Direct Official EDINET Document Viewer -->
+              <button type="button" id="btn-open-yuho-direct" onclick="openDirectYuho(event)" class="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-bold text-sm transition-all shadow-md hover:shadow-emerald-600/30 cursor-pointer transform hover:-translate-y-0.5">
+                <i class="fa-solid fa-file-signature text-base"></i>
+                <span>金融庁EDINETで有報原本を開く</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
-              </a>
-              <!-- EDINET Search with 1-Click Code Copy -->
-              <button type="button" id="btn-copy-edinet" onclick="openEdinetWithCopy(event)" class="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-medium text-xs border border-slate-700 transition cursor-pointer active:scale-95">
-                <i class="fa-regular fa-copy text-indigo-400"></i>
-                <span id="label-edinet-code">EDINET: E02144</span>
-                <span class="text-[10px] bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded">コピーして開く</span>
               </button>
+              <!-- Secondary: Direct Disclosure List -->
+              <a id="disp-disclosure-link" href="https://kabutan.jp/stock/kaiji/?code=7203" target="_blank" rel="noopener noreferrer" onclick="handleDisclosureClick(event)" class="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium text-xs border border-slate-700 transition cursor-pointer">
+                <i class="fa-solid fa-newspaper text-slate-400"></i>
+                <span>適時開示・短信一覧</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-2xs opacity-60"></i>
+              </a>
             </div>
           </div>
 
@@ -683,7 +684,7 @@
     </div>
   </div>
 
-  <script src="/app.js?v=20260922_2"></script>
+  <script src="/app.js?v=20260922_3"></script>
   <!-- Toast Notification -->
   <div id="toast-notify" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 text-sm">
     <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
