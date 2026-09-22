@@ -513,23 +513,23 @@ async function handleOptionSelect(selectedOption, clickedBtn) {
   feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Handle Disclosure Link Click
+// Handle Disclosure Link Click (Yahooファイナンス適時開示情報へ1発直行)
 function handleDisclosureClick(event) {
-  let targetUrl = "https://kabutan.jp/stock/kaiji/?code=7203";
+  let targetUrl = "https://finance.yahoo.co.jp/quote/7203.T/disclosure";
   if (currentCompany && currentCompany.company) {
     const comp = currentCompany.company;
-    targetUrl = comp.disclosure_url || `https://kabutan.jp/stock/kaiji/?code=${comp.code}`;
+    targetUrl = comp.disclosure_url || `https://finance.yahoo.co.jp/quote/${comp.code}.T/disclosure`;
   }
   
-  // Ensure link href is updated
   const linkEl = document.getElementById('disp-disclosure-link');
   if (linkEl) {
     linkEl.href = targetUrl;
   }
   
-  // If clicked, open targetUrl directly
-  event.preventDefault();
-  window.open(targetUrl, '_blank', 'noopener,noreferrer');
+  if (event) {
+    event.preventDefault();
+    window.open(targetUrl, '_blank', 'noopener,noreferrer');
+  }
 }
 
 // Open Direct EDINET Document Viewer (WZEK0040.aspx?{docID})
@@ -545,18 +545,75 @@ function openDirectYuho(event) {
     compName = comp.short_name || comp.name;
     edinetCode = comp.edinet_code || comp.code;
 
-    // doc_id が存在する場合、金融庁公式ビューワーURL（WZEK0040.aspx?{docID}）へ1発直行
-    if (comp.doc_id && comp.doc_id.startsWith('S100')) {
+    // doc_id が存在し、本物の8桁docID（仮のXやYを含まない正規番号）の場合
+    if (comp.doc_id && comp.doc_id.startsWith('S100') && comp.doc_id.length === 8 && !comp.doc_id.includes('X') && !comp.doc_id.includes('Y')) {
       targetUrl = `https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?${comp.doc_id}`;
       showToast('金融庁EDINET有報原本を開きます', `「${compName}」の公式有価証券報告書ビューワーに直行します。`);
     } else {
-      // フォールバック（EDINETコードをコピーしてトップを開く）
+      // docIDがまだ未取得の場合：EDINETコードをコピーして検索画面を開く
       copyTextToClipboard(edinetCode);
-      showToast('EDINETコードをコピーしました', `「${edinetCode}」（${compName}）をコピーしました。検索窓で貼り付けて検索できます。`);
+      showToast('EDINETコードをコピーしました！', `「${edinetCode}」（${compName}）をコピーしました。ヘッダーの「API設定」からキーを登録すると原本直行が有効化されます。`);
     }
   }
 
   window.open(targetUrl, '_blank', 'noopener,noreferrer');
+}
+
+// ==============================================================
+// EDINET API KEY MODAL & SYNC HANDLERS
+// ==============================================================
+function openApiKeyModal() {
+  const modal = document.getElementById('api-key-modal');
+  const input = document.getElementById('input-edinet-api-key');
+  modal.classList.remove('hidden');
+  setTimeout(() => input.focus(), 60);
+}
+
+function closeApiKeyModal() {
+  const modal = document.getElementById('api-key-modal');
+  modal.classList.add('hidden');
+}
+
+async function saveApiKeyAndSync() {
+  const input = document.getElementById('input-edinet-api-key');
+  const key = input.value.trim();
+  if (!key) {
+    alert('APIキーを入力してください');
+    return;
+  }
+
+  const btn = document.getElementById('btn-save-api-key');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1"></i> 金融庁APIから有報原本を同期中...`;
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/settings/edinet_key', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ api_key: key })
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || 'APIキーの登録・同期に失敗しました');
+    }
+
+    closeApiKeyModal();
+    showToast('EDINET API連携完了！', data.message);
+
+    // ヘッダーバッジ点灯＆企業データ再読み込み
+    await fetchMeta();
+    await fetchCompaniesList();
+    if (currentCompany && currentCompany.company) {
+      selectCompany(currentCompany.company.id);
+    }
+
+  } catch (err) {
+    alert(`エラー: ${err.message}`);
+  } finally {
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+  }
 }
 
 // Open EDINET Document Viewer or Search with 1-Click Code Copy

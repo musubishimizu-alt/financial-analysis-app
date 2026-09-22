@@ -58,7 +58,7 @@
         </div>
 
         <!-- Navigation Tabs -->
-        <nav class="flex space-x-1 sm:space-x-2">
+        <nav class="flex items-center space-x-1 sm:space-x-2">
           <button id="nav-tab-analysis" onclick="switchTab('analysis')" class="px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 bg-indigo-600 text-white shadow-sm">
             <i class="fa-solid fa-chart-pie"></i>
             <span>企業財務分析</span>
@@ -71,6 +71,10 @@
           <button id="nav-tab-guide" onclick="switchTab('guide')" class="px-3 sm:px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-800">
             <i class="fa-solid fa-book-bookmark text-amber-400"></i>
             <span class="hidden md:inline">指標ガイド</span>
+          </button>
+          <button onclick="openApiKeyModal()" class="px-2.5 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition flex items-center gap-1.5 shadow-sm ml-1" title="EDINET APIキーを設定">
+            <i class="fa-solid fa-key text-amber-400 text-xs"></i>
+            <span class="hidden sm:inline">API設定</span>
           </button>
         </nav>
       </div>
@@ -183,7 +187,7 @@
                 <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
               </button>
               <!-- Secondary: Direct Disclosure List -->
-              <a id="disp-disclosure-link" href="https://kabutan.jp/stock/kaiji/?code=7203" target="_blank" rel="noopener noreferrer" onclick="handleDisclosureClick(event)" class="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium text-xs border border-slate-700 transition cursor-pointer">
+              <a id="disp-disclosure-link" href="https://finance.yahoo.co.jp/quote/7203.T/disclosure" target="_blank" rel="noopener noreferrer" onclick="handleDisclosureClick(event)" class="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-medium text-xs border border-slate-700 transition cursor-pointer">
                 <i class="fa-solid fa-newspaper text-slate-400"></i>
                 <span>適時開示・短信一覧</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-2xs opacity-60"></i>
@@ -680,11 +684,66 @@
           </div>
         </div>
 
+  <!-- Modal: EDINET API Key Settings -->
+  <div id="api-key-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full border border-slate-200 overflow-hidden transform transition-all my-8 animate-in fade-in zoom-in duration-200">
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-slate-900 via-slate-850 to-indigo-950 p-5 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-400 text-lg shadow-inner">
+            <i class="fa-solid fa-key"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base">金融庁 EDINET API 設定</h3>
+            <p class="text-xs text-slate-300">APIキーを登録して原本直行リンクを有効化</p>
+          </div>
+        </div>
+        <button onclick="closeApiKeyModal()" class="text-slate-400 hover:text-white p-2 rounded-lg transition">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">
+            EDINET APIキー（Subscription-Key）
+          </label>
+          <input 
+            type="password" 
+            id="input-edinet-api-key" 
+            placeholder="金融庁から発行されたAPIキーを貼り付け"
+            class="w-full px-3.5 py-2.5 border-2 border-slate-200 focus:border-indigo-500 rounded-xl outline-none text-slate-800 text-sm shadow-inner font-mono"
+            onkeydown="if(event.key==='Enter') saveApiKeyAndSync()"
+          >
+          <p class="text-2xs text-slate-500 mt-1.5 leading-relaxed">
+            ※入力されたキーはローカル環境（.env）に安全に保存され、全登録企業（約20社）の最新有報原本docIDの探索・同期が即座に実行されます。
+          </p>
+        </div>
+
+        <div class="flex gap-2 pt-2">
+          <button 
+            type="button" 
+            onclick="closeApiKeyModal()" 
+            class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold transition"
+          >
+            閉じる
+          </button>
+          <button 
+            id="btn-save-api-key"
+            type="button" 
+            onclick="saveApiKeyAndSync()" 
+            class="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-md"
+          >
+            <i class="fa-solid fa-check"></i>
+            <span>保存して有報原本を同期</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <script src="/app.js?v=20260922_3"></script>
+  <script src="/app.js?v=20260922_4"></script>
   <!-- Toast Notification -->
   <div id="toast-notify" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 text-sm">
     <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">

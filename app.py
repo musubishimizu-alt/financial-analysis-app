@@ -120,7 +120,9 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
                     "standard": company["standard"],
                     "edinet_code": company["edinet_code"],
                     "doc_id": company.get("doc_id", ""),
-                    "edinet_url": company["edinet_url"],
+                    "edinet_url": company.get("edinet_url", "https://disclosure2.edinet-fsa.go.jp/"),
+                    "edinet_verified": company.get("edinet_verified", False),
+                    "disclosure_url": company.get("disclosure_url", f"https://finance.yahoo.co.jp/quote/{company['code']}.T/disclosure"),
                     "description": company.get("description", ""),
                     "financial_raw": company["financial_raw"],
                     "source_locations": company["source_locations"]
@@ -236,6 +238,43 @@ class FinancialAppHandler(http.server.SimpleHTTPRequestHandler):
             self.send_json_response({
                 "success": True,
                 "message": f"金融庁EDINET APIから{updated}社の最新有報原本docID・直行リンクを同期しました！",
+                "updated_count": updated
+            })
+            return
+
+        # 4. Save EDINET API Key from Web UI and Trigger Sync
+        if path == "/api/settings/edinet_key":
+            content_length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(content_length).decode("utf-8")
+            try:
+                payload = json.loads(body)
+            except Exception:
+                self.send_json_response({"error": "Invalid JSON"}, status=400)
+                return
+
+            api_key = str(payload.get("api_key", "")).strip()
+            if not api_key:
+                self.send_json_response({"error": "API key cannot be empty"}, status=400)
+                return
+
+            # Save to .env securely
+            env_file = BASE_DIR / ".env"
+            try:
+                with open(env_file, "w", encoding="utf-8") as f:
+                    f.write(f"EDINET_API_KEY={api_key}\n")
+            except Exception as e:
+                print(f"Warning writing .env: {e}")
+
+            os.environ["EDINET_API_KEY"] = api_key
+            edinet_client._api_key = api_key
+
+            # Batch sync companies with new key
+            updated = edinet_client.sync_all_registered_companies(DATA_FILE)
+            load_data()
+
+            self.send_json_response({
+                "success": True,
+                "message": f"EDINET APIキーを登録しました！{updated}社の最新有報原本リンクを同期完了しました。",
                 "updated_count": updated
             })
             return
